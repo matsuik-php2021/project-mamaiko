@@ -1,0 +1,57 @@
+[33mcommit c2c94ff4a7af7e83f189e29eaa79a81cb746e0d0[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Merge: 2966423 241213f
+Author: matsuik-php2021 <84169089+matsuik-php2021@users.noreply.github.com>
+Date:   Thu May 20 11:33:27 2021 +0900
+
+    Merge pull request #1 from matsuik-php2021/create-users-table
+    
+    Create users table
+
+[33mcommit 2966423f2187a6cd02efb1e9861178f0a8bd2f5e[m
+Author: matsuik-php2021 <2021php41-student022@la-study.com>
+Date:   Thu May 20 11:22:30 2021 +0900
+
+    bootstrapの導入
+
+[33mcommit 8444fbdf8fc4719335db497f6484f2fb5a252182[m
+Author: matsuik-php2021 <2021php41-student022@la-study.com>
+Date:   Thu May 20 10:40:34 2021 +0900
+
+    app_nameをmamaikoに変更
+
+[33mcommit 241213f8d2d8f66aaa8e7ea7f7ec1ebafe5e99f2[m[33m ([m[1;31morigin/create-users-table[m[33m)[m
+Merge: c4baec3 29f139f
+Author: IsseiAdachi <issei715@gmail.com>
+Date:   Thu May 20 10:26:35 2021 +0900
+
+    Merge branch 'main' of https://github.com/matsuik-php2021/project-mamaiko into create-users-table
+
+[33mcommit 29f139f5a3f11208be8ae1e229f3ed5a43ab3f18[m
+Author: matsuik-php2021 <2021php41-student022@la-study.com>
+Date:   Thu May 20 10:25:22 2021 +0900
+
+    vendorファイル復元
+
+[33mcommit c4baec31dd81a53dfd76af5b292a2c98654c9e02[m
+Author: IsseiAdachi <issei715@gmail.com>
+Date:   Thu May 20 10:16:22 2021 +0900
+
+    .
+
+[33mcommit ab39164f1a6cef81a53a4a3834970ca3a00eb06a[m
+Author: matsuik-php2021 <2021php41-student022@la-study.com>
+Date:   Thu May 20 09:38:05 2021 +0900
+
+    gitignoreを変更しました
+
+[33mcommit 06f1b4701ca0ae94de7dc287dee170f90c3d5d9d[m
+Author: matsuik-php2021 <2021php41-student022@la-study.com>
+Date:   Thu May 20 09:32:20 2021 +0900
+
+    envファイルの変更(試し)
+
+[33mcommit aaa09871dd42387e0a035c0925d8f3b64c63e79f[m
+Author: matsuik-php2021 <2021php41-student022@la-study.com>
+Date:   Thu May 20 09:26:45 2021 +0900
+
+    create project by composer
