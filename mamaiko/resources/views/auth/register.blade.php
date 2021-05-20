@@ -1,8 +1,7 @@
 @extends('layouts.app')
 @section('content')
-
                 <h1>新規会員登録</h1>
-                <form action="{{route('register')}}" method="post">
+                <form action="{{route('confirm')}}" method="post">
                     @csrf
                     <p>
                         <label>名前<br>
@@ -36,4 +35,4 @@
                         <button type="submit">確認画面へ</button>
                     </p>
                 </form>
- @endsection
+@endsection

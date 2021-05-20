@@ -70,4 +70,8 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+    public function confirm(Request $request)
+    {
+        return view('confirm', ['user' => $request]);
+    }
 }
