@@ -16,30 +16,18 @@
     </dl>
 <form action="{{route('register')}}" method="post">
 @csrf
-<p>
-    <label>名前<br>
+    <label>
     <input type="hidden" name="name" value="{{ $user->name }}"></label>
-</p>
-<p>
-    <label>生年月日<br>
+    <label>
     <input type="hidden" name="birthday" value="{{ $user->birthday }}"></label>
-</p>
-<p>
-    <label>住所<br>
+    <label>
     <input type="hidden" name="address" value="{{ $user->address }}"></label>
-</p>
-<p>
-    <label>電話番号<br>
+    <label>
     <input type="hidden" name="tel" value="{{ $user->tel }}"></label>
-</p>
-<p>
-    <label>メールアドレス<br>
+    <label>
     <input type="hidden" name="email" value="{{ $user->email }}"></label>
-</p>
-<p>
-    <label>パスワード<br>
+    <label>
     <input type="hidden" name="password" value="{{ $user->password }}"></label>
-</p>
 <p>
     <button type="submit">この内容で登録する</button>
 </p>

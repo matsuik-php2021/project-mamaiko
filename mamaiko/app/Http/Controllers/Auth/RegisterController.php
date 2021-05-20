@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
@@ -70,8 +71,10 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+
     public function confirm(Request $request)
     {
-        return view('confirm', ['user' => $request]);
+        // dd($request);
+        return view('auth/confirm', ['user' => $request]);
     }
 }
