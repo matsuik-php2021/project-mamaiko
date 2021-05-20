@@ -11,8 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
+
+Route::post('/confirm', 'Auth\RegisterController@confirm')->name('confirm');
