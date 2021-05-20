@@ -1,19 +1,6 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>新規会員登録画面</title>
-        /*<link rel="" href="">*/
-    </head>
+@extends('layouts.app')
+@section('content')
 
-    <body>
-        <header>
-            <div class="container">
-            <a class="" href="/home">トップページ</a>
-            </div>
-        </header>
-        <main>
-            <div class=container>
                 <h1>新規会員登録</h1>
                 <form action="{{route('register')}}" method="post">
                     @csrf
@@ -49,7 +36,4 @@
                         <button type="submit">確認画面へ</button>
                     </p>
                 </form>
-            </div>
-        </main>
-    </body>
-</html>
+ @endsection

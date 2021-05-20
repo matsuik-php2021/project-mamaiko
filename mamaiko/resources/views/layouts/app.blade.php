@@ -12,11 +12,11 @@
         <nav class="navbar navbar-dark bg-dark">
             <div class="container">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+                    <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
+                        <span class="icon-bar">a</span>
+                        <span class="icon-bar">b</span>
+                        <span class="icon-bar">c</span>
+                    </button> -->
                     <a class="navbar-brand" href="#">ままいこ</a>
                 </div>
             </div>
