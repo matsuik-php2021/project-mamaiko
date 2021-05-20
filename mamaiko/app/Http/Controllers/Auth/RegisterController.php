@@ -72,9 +72,96 @@ class RegisterController extends Controller
         ]);
     }
 
+    function post(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        $input = $request->only($this->formItems);
+
+        //セッションに書き込む
+        $request->session()->put("form_input", $input);
+        dd(action($this->form_comfirm));
+
+        return redirect()->action($this->form_confirm);
+    }
+
+    public function register(Request $request)
+    {
+        //セッションから値を取り出す
+        $input = $request->session()->get("form_input");
+
+        // 戻るボタン
+        if ($request->has("back")) {
+            return redirect()->action($this->form_show)
+                ->withInput($input);
+        }
+
+        //セッションに値が無い時はフォームに戻る
+        if (!$input) {
+            return redirect()->action($this->form_show);
+        }
+
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        //セッションを空にする
+        $request->session()->forget("form_input");
+
+        // 登録データーでログイン
+        $this->guard()->login($user, true);
+
+        return $this->registered($request, $user)
+            ?  : redirect($this->redirectPath());
+    }
+
+    function registered(Request $request, $user)
+    {
+        return redirect()->action($this->form_complete);
+    }
+
+    public function showRegistrationForm()
+    {
+        return view('auth/register');
+    }
+
     public function confirm(Request $request)
     {
-        // dd($request);
-        return view('auth/confirm', ['user' => $request]);
+        //セッションから値を取り出す
+        $input = $request->session()->get("form_input");
+
+        //セッションに値が無い時はフォームに戻る
+        if (!$input) {
+            return redirect()->action("Auth\RegisterController");
+        }
+
+        return view('auth/confirm', ["input" => $input]);
     }
+
+    /*
+     * 完了画面出力
+     */
+    public function complete()
+    {
+        return view('auth.register.complete');
+    }
+
+    // public function register(Request $request)
+    // {
+    //     $user = new \App\User;
+    //     $user->name = $request->name;
+    //     $user->birthday = $request->birthday;
+    //     $user->address = $request->address;
+    //     $user->tel = $request->name;
+    //     $user->email = $request->email;
+    //     $user->password = $request->password;
+    //     $user->save();
+    //     return redirect(route('register'));
+    // }
+
+    // public function confirm(Request $request)
+    // {
+    //     // dd($request);
+    //     return view('auth/confirm', ['user' => $request]);
+    // }
 }

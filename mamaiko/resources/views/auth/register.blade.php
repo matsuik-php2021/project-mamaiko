@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <h1>新規会員登録</h1>
-<form action="{{route('confirm')}}" method="post">
+<form action="{{route('user.resister_post')}}" method="post">
     @csrf
     <p>
         <label>名前<br>
