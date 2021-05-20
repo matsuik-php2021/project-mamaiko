@@ -14,7 +14,7 @@
         <dt>メールアドレス</dt>
         <dd>{{ $user->email }}</dd>
     </dl>
-<form action="{{route('confirm')}}" method="post">
+<form action="{{route('save')}}" method="post">
 @csrf
     <label>
     <input type="hidden" name="name" value="{{ $user->name }}"></label>

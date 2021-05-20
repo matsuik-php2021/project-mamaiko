@@ -72,6 +72,10 @@ class RegisterController extends Controller
         ]);
     }
 
+    public function register()
+    {
+        return view('auth/register');
+    }
     public function confirm(Request $request)
     {
         // dd($request);
@@ -88,6 +92,6 @@ class RegisterController extends Controller
         $user->email = $request->email;
         $user->password = $request->password;
         $user->save();
-        return view('auth/register');
+        return view('auth/save');
     }
 }
