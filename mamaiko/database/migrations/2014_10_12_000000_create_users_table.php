@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('address');
             $table->string('tel');
             $table->date('birthday');
-            $table->bigInteger('point');
+            $table->bigInteger('point')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
