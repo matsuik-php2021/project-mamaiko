@@ -10,4 +10,10 @@ class HomeController extends Controller
     {
         return view('home/index');
     }
+
+    public function mypage()
+    {
+        return view('home/mypage');
+    }
+
 }

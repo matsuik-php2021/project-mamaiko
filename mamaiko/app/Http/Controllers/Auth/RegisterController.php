@@ -99,4 +99,8 @@ class RegisterController extends Controller
         $user->save();
         return view('auth/save');
     }
+
+    public function update(){
+        return view('auth/update');
+    }
 }

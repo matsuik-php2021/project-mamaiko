@@ -20,9 +20,7 @@ Route::post('/save', 'Auth\RegisterController@save')->name('save');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware'=>['auth']],function(){
-    Route::get('home','HomeController@index')->name('home');
-    Route::resource('books','BookController');
-    Route::get('likes','LikeController@index')->name('likes.index');
-    Route::post('likes','LikeController@store')->name('likes.post');
-    Route::delete('likes','LikeController@destroy')->name('likes.destroy');
+Route::get('home','HomeController@index')->name('home');
+Route::get('/mypage','HomeController@mypage')->name('mypage');
+Route::get('/update','Auth\RegisterController@update')->name('auth.update');
 });
