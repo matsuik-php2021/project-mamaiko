@@ -37,4 +37,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function favorite_hotels()
+    {
+        //
+    }
+    public function reviews()
+    {
+        //
+    }
+    public function reservations()
+    {
+        //
+    }
+    public function get_point()
+    {
+        //
+    }
+    public function use_point()
+    {
+        //
+    }
 }
