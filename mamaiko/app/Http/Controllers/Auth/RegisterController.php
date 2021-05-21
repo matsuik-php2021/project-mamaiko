@@ -72,9 +72,26 @@ class RegisterController extends Controller
         ]);
     }
 
+    public function register()
+    {
+        return view('auth/register');
+    }
     public function confirm(Request $request)
     {
         // dd($request);
         return view('auth/confirm', ['user' => $request]);
+    }
+
+    public function save(Request $request)
+    {
+        $user = new \App\User;
+        $user->name = $request->name;
+        $user->birthday = $request->birthday;
+        $user->address = $request->address;
+        $user->tel = $request->tel;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->save();
+        return view('auth/save');
     }
 }

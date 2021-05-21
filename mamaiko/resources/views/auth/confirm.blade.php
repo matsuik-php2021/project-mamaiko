@@ -14,7 +14,7 @@
         <dt>メールアドレス</dt>
         <dd>{{ $user->email }}</dd>
     </dl>
-<form action="{{route('register')}}" method="post">
+<form action="{{route('save')}}" method="post">
 @csrf
     <label>
     <input type="hidden" name="name" value="{{ $user->name }}"></label>
@@ -32,5 +32,5 @@
     <button type="submit">この内容で登録する</button>
 </p>
 </form>
-<a href = "/register">戻る</a>
+<a href = "{{route('register')}}">戻る</a>
 @endsection
