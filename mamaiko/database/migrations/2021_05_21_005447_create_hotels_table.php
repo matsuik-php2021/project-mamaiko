@@ -16,7 +16,7 @@ class CreateHotelsTable extends Migration
         Schema::create('hotels', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name'); //ホテル名
-            $table->integer('category_id')->unsigned()->index(); //分類コード、エラーが起きたら真っ先に見直す
+            $table->bigInteger('category_id')->unsigned()->index(); //分類コード、エラーが起きたら真っ先に見直す
             $table->string('address'); //住所
             $table->string('access'); //アクセス
             $table->string('description'); //紹介文
