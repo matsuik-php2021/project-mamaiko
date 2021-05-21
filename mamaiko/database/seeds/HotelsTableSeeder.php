@@ -19,10 +19,8 @@ class HotelsTableSeeder extends Seeder
                 'address' => '新宿区' . $i .'丁目',
                 'access' => '新宿駅から西へ' . $i . '00歩',
                 'description' => '星' . $i . '個のホテル',
-                'checkin_time' => '21時',
-                'checkout_time' => '10時',
-                'validation' => 'なし',
-
+                'checkin_time' => '21:00:00',
+                'checkout_time' => '10:00:00',
             ]);
             $hotel->save();
         }
