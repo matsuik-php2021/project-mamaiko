@@ -16,7 +16,7 @@
     </tr>
     @endforeach
 </table>
-{{$searches->links()}}
+{{$searches->appends(request()->input())->links()}}
 @else
     <p>検索結果に合うホテルがありませんでした。</p>
 @endif
