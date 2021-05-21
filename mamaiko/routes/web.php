@@ -11,7 +11,9 @@
 |
 */
 
+use Illuminate\Support\Facades\Auth;
 
-Route::get('/register', 'Auth\RegisterController@register')->name('register');
+Auth::routes();
+
 Route::post('/confirm', 'Auth\RegisterController@confirm')->name('confirm');
 Route::post('/save', 'Auth\RegisterController@save')->name('save');
