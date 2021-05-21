@@ -32,7 +32,7 @@ class HotelController extends Controller
         if (!empty($people)){
             $query->where('people', '=', $people );
         }
-        $searches=$query->paginate(5);
+        $searches=$query->paginate(5); //2ページ目に行くと検索条件がなくなる
         return view('search_results', ['searches'=> $searches]);
     }
 }

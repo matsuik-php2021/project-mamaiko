@@ -16,8 +16,10 @@
     </tr>
     @endforeach
 </table>
+{{$searches->links()}}
 @else
     <p>検索結果に合うホテルがありませんでした。</p>
 @endif
-{{$searches->links()}}
+
 @endsection
+<!-- 解決法：検索エンジンをつける -->
