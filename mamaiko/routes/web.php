@@ -21,8 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware'=>['auth']],function(){
     Route::get('home','HomeController@index')->name('home');
-    Route::resource('books','BookController');
-    Route::get('likes','LikeController@index')->name('likes.index');
-    Route::post('likes','LikeController@store')->name('likes.post');
-    Route::delete('likes','LikeController@destroy')->name('likes.destroy');
 });
+
+Route::get('/', 'HotelController@toppage')->name('toppage');
+Route::get('/search_results', 'HotelController@index')->name('search_results');

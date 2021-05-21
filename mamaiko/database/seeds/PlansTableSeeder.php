@@ -17,7 +17,8 @@ class PlansTableSeeder extends Seeder
                 'description' => 'サンプルです。低めです。',
                 'price' => rand(1,5) * 3000,
                 'room_count' => rand(1,3),
-                'hotel_id' => $i
+                'hotel_id' => $i,
+                'people' => rand(1,4)
             ]);
             $plan->save();
             
@@ -26,7 +27,8 @@ class PlansTableSeeder extends Seeder
                 'description' => 'サンプルBです。高めです。',
                 'price' => rand(5,10) * 3000,
                 'room_count' => rand(1,3),
-                'hotel_id' => $i
+                'hotel_id' => $i,
+                'people' => rand(1,4)
             ]);
             $plan2->save();
         }
