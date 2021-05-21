@@ -2,6 +2,13 @@
 @section('content')
 
 <h1>ログイン</h1>
+@if ($errors->count())
+    <ul class="alert">
+        @foreach($errors->all() as $error)
+            <li>{{$error}}</li>
+        @endforeach
+    </ul>
+@endif
 <form action="{{route('login')}}" method="post">
     @csrf
     <p>
