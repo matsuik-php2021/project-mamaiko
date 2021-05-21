@@ -8,6 +8,7 @@ class HomeController extends Controller
 {
     public function index()
     {
+        // dd("test");
         return view('home/index');
     }
 
@@ -16,4 +17,7 @@ class HomeController extends Controller
         return view('home/mypage');
     }
 
+    public function update(){
+        return view('home/update');
+    }
 }

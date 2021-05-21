@@ -100,7 +100,5 @@ class RegisterController extends Controller
         return view('auth/save');
     }
 
-    public function update(){
-        return view('auth/update');
-    }
+
 }

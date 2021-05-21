@@ -5,7 +5,7 @@
     @csrf
     <p>
         <label>名前<br>
-        <input type="text" name="name" value="{{Auth::user->name}}"></label>
+        <input type="text" name="name" value="{{Auth::user()->name}}"></label>
     </p>
     <p>
         <label>生年月日<br>

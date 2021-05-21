@@ -17,10 +17,9 @@ Auth::routes();
 
 Route::post('/confirm', 'Auth\RegisterController@confirm')->name('confirm');
 Route::post('/save', 'Auth\RegisterController@save')->name('save');
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware'=>['auth']],function(){
-Route::get('home','HomeController@index')->name('home');
-Route::get('/mypage','HomeController@mypage')->name('mypage');
-Route::get('/update','Auth\RegisterController@update')->name('auth.update');
+    Route::get('home','HomeController@index')->name('home');
+    Route::get('/update','HomeController@update')->name('update');
+    Route::get('/mypage','HomeController@mypage')->name('mypage');
 });
