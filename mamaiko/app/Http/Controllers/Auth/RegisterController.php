@@ -63,11 +63,16 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
+
+     //使ってません。saveメソッド使ってます。
     protected function create(array $data)
     {
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'address' => $data['address'],
+            'birthday' => $data['birthday'],
+            'tel' => $data['tel'],
             'password' => Hash::make($data['password']),
         ]);
     }
@@ -90,7 +95,7 @@ class RegisterController extends Controller
         $user->address = $request->address;
         $user->tel = $request->tel;
         $user->email = $request->email;
-        $user->password = $request->password;
+        $user->password = Hash::make($request->password);
         $user->save();
         return view('auth/save');
     }
