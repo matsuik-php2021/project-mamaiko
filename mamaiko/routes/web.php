@@ -22,4 +22,5 @@ Route::group(['middleware'=>['auth']],function(){
     Route::get('home','HomeController@index')->name('home');
     Route::get('/update','HomeController@update')->name('update');
     Route::get('/mypage','HomeController@mypage')->name('mypage');
+    Route::post('/store','HomeController@store')->name('store');
 });
