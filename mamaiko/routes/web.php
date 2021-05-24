@@ -11,6 +11,7 @@
 |
 */
 
+use App\Http\Controllers\ReservationController;
 use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
@@ -28,4 +29,6 @@ Route::group(['middleware'=>['auth']],function(){
     Route::post('/user_info/store','HomeController@store')->name('home.store');
     Route::get('/withdraw','HomeController@withdraw')->name('withdraw');
     Route::get('/destroy','HomeController@destroy')->name('destroy');
+    Route::get('/plan/{id}/reservation','ReservationController@create')->name('reservation');
+    Route::post('/plan/{id}/reserve_confirm','ReservationController@confirm')->name('reservation.confirm');
 });
