@@ -18,6 +18,18 @@
                         <span class="icon-bar">c</span>
                     </button> -->
                     <a class="navbar-brand" href="#">ままいこ</a>
+                    @if (Auth::check())
+                    <form name="logout" method="POST" action="{{route('logout')}}">
+                    @csrf
+                    <a href="javascript:logout.submit()">ログアウト</a>
+                    </form>
+                    <a href="{{route('mypage')}}">マイページ</a> 
+                    @else
+                    <a href="{{route('login')}}">ログイン</a>
+                    @endif
+
+
+
                 </div>
             </div>
         </nav>
