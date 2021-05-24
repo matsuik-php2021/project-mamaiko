@@ -14,7 +14,7 @@
         <dt>メールアドレス</dt>
         <dd>{{ $user->email }}</dd>
     </dl>
-<form action="{{route('store')}}" method="post">
+<form action="{{route('home.store')}}" method="post">
 @csrf
     <label>
     <input type="hidden" name="name" value="{{ $user->name }}"></label>
@@ -30,5 +30,5 @@
     <button type="submit">この内容で登録する</button>
 </p>
 </form>
-<a href = "{{route('update')}}">戻る</a>
+<a href = "{{route('home.update')}}">戻る</a>
 @endsection

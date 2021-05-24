@@ -21,7 +21,7 @@ Route::post('/save', 'Auth\RegisterController@save')->name('save');
 Route::group(['middleware'=>['auth']],function(){
     Route::get('home','HomeController@index')->name('home');
     Route::get('/mypage','HomeController@mypage')->name('mypage');
-    Route::get('/update','HomeController@update')->name('update');
-    Route::post('/home/confirm','HomeController@confirm')->name('home.confirm');
-    Route::post('/store','HomeController@store')->name('store');
+    Route::get('/user_info/update','HomeController@update')->name('home.update');
+    Route::post('/user_info/confirm','HomeController@confirm')->name('home.confirm');
+    Route::post('/user_info/store','HomeController@store')->name('home.store');
 });
