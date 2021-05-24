@@ -19,10 +19,12 @@ class HotelController extends Controller
         $price2=$request->input('price2');
         $people=$request->input('people');
 
-        $query=Plan::query();
-        // if (!empty($hotel_name)){
-        //     $query->where('name', 'LIKE', "%{$hotel_name}%" );
-        // }
+        $query=Plan::query(); 
+        // $query->leftJoin('hotels', 'plans.hotel_id', '=', 'hotels.id');
+         if (!empty($hotel_name)){
+             $query->where('name', 'LIKE', "%{$hotel_name}%" );
+         }
+        // ホテルテーブルからホテル名を持ってきたい
         if (!empty($price1)){
             $query->where('price', '>=', $price1 );
         }
@@ -32,7 +34,7 @@ class HotelController extends Controller
         if (!empty($people)){
             $query->where('people', '=', $people );
         }
-        $searches=$query->paginate(5); //2ページ目に行くと検索条件がなくなる
+        $searches=$query->orderBy('price', 'asc')->paginate(5);
         return view('search_results', ['searches'=> $searches]);
     }
 }
