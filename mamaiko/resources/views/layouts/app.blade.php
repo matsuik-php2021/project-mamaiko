@@ -25,7 +25,8 @@
                         <a href="javascript:logout.submit()">ログアウト</a>
                     </form>
                     @else
-                    <a href="{{route('login')}}">ログイン</a>
+                        <a href="{{route('login')}}">ログイン</a>
+                        <a href="{{route('register')}}">会員登録</a>
                     @endif
                 </div>
             </div>
