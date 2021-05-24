@@ -17,7 +17,7 @@
                         <span class="icon-bar">b</span>
                         <span class="icon-bar">c</span>
                     </button> -->
-                    <a class="navbar-brand" href="route('home')">ままいこ</a>
+                    <a class="navbar-brand" href="{{route('toppage')}}">ままいこ</a>
                     @if (Auth::check())
                     <a href="{{route('mypage')}}">マイページ</a>
                     <form name="logout" method="POST" action="{{route('logout')}}">
