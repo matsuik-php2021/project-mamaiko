@@ -38,4 +38,9 @@ class HomeController extends Controller
         $user->save();
         return redirect(route('mypage'));
     }
+
+    public function withdraw()
+    {
+        return view('home/withdraw');
+    }
 }
