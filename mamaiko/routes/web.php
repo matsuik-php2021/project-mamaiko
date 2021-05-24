@@ -17,6 +17,8 @@ Auth::routes();
 
 Route::post('/confirm', 'Auth\RegisterController@confirm')->name('confirm');
 Route::post('/save', 'Auth\RegisterController@save')->name('save');
+Route::get('/', 'HotelController@toppage')->name('toppage');
+Route::get('/search_results', 'HotelController@index')->name('search_results');
 
 Route::group(['middleware'=>['auth']],function(){
     Route::get('home','HomeController@index')->name('home');
