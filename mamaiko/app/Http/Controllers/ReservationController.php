@@ -27,6 +27,13 @@ class ReservationController extends Controller
         return view('reservation.create',['plan'=>$plan]);
     }
 
+
+    public function confirm(Request $request)
+    {
+        $plan = \App\Plan::find($request->plan_id);
+        return view('reservation.confirm',['plan'=>$plan,'request'=>$request]);
+    }
+
     /**
      * Store a newly created resource in storage.
      *

@@ -29,6 +29,8 @@ Route::group(['middleware'=>['auth']],function(){
     Route::post('/user_info/store','HomeController@store')->name('home.store');
     Route::get('/withdraw','HomeController@withdraw')->name('withdraw');
     Route::get('/destroy','HomeController@destroy')->name('destroy');
-    Route::get('/plan/{id}/reservation','ReservationController@create')->name('reservation');
-    Route::post('/plan/{id}/reserve_confirm','ReservationController@confirm')->name('reservation.confirm');
+    Route::get('/plan/{id}/reservation','ReservationController@create')->name('reservation.create');
+    Route::post('/reservation/confirm','ReservationController@confirm')->name('reservation.confirm');
+    Route::post('/reservation/store','ReservationController@store')->name('reservation.store');
+    Route::get('/reservation_complete','ReservationController@confirm')->name('reservation.complete');
 });
