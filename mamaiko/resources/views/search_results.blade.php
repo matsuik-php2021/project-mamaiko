@@ -22,5 +22,4 @@
 @else
     <p>検索結果に合うホテルがありませんでした。</p>
 @endif
-
 @endsection
