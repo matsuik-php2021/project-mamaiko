@@ -24,5 +24,6 @@ Route::group(['middleware'=>['auth']],function(){
     Route::get('/user_info/update','HomeController@update')->name('home.update');
     Route::post('/user_info/confirm','HomeController@confirm')->name('home.confirm');
     Route::post('/user_info/store','HomeController@store')->name('home.store');
-    Route::get('/destroy','HomeController@withdraw')->name('destroy');
+    Route::get('/withdraw','HomeController@withdraw')->name('withdraw');
+    Route::get('/destroy','HomeController@destroy')->name('destroy');
 });

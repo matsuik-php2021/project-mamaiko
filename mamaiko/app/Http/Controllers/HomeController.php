@@ -43,4 +43,11 @@ class HomeController extends Controller
     {
         return view('home/withdraw');
     }
+
+    public function destroy()
+    {       
+        $user = User::where('id','=',\Auth::id())->get()[0];
+        $user->delete();
+        return redirect(route('home'));
+    }
 }
