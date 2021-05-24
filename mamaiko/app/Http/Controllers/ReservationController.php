@@ -42,7 +42,16 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $reservation = new \App\Reservation;
+        $reservation->hotel_id = $request->hotel_id;
+        $reservation->plan_id = $request->plan_id;
+        $reservation->user_id = $request->user_id;
+        $reservation->checkin_date = $request->checkin_date;
+        $reservation->checkout_date = $request->checkout_date;
+        $reservation->reservation_date = $request->reservation_date;
+        $reservation->room_count = $request->room_count;
+        $reservation->save();
+        return view('reservation.complete');
     }
 
     /**

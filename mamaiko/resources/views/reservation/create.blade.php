@@ -2,6 +2,8 @@
 @section('content')
 <h1>予約画面</h1>
 <h2>{{$plan->name}}</h2>
+<p>{{$plan->description}}</p>
+<p>{{$plan->price}}円</p>
 <form action="{{route('reservation.confirm')}}" method="post">
     @csrf
     <p>

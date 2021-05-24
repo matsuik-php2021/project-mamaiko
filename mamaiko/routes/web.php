@@ -32,5 +32,4 @@ Route::group(['middleware'=>['auth']],function(){
     Route::get('/plan/{id}/reservation','ReservationController@create')->name('reservation.create');
     Route::post('/reservation/confirm','ReservationController@confirm')->name('reservation.confirm');
     Route::post('/reservation/store','ReservationController@store')->name('reservation.store');
-    Route::get('/reservation_complete','ReservationController@confirm')->name('reservation.complete');
 });
