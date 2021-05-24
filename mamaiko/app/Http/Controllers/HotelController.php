@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Plan;
+use App\Hotel;
 use Illuminate\Http\Request;
 
 class HotelController extends Controller
@@ -35,6 +36,17 @@ class HotelController extends Controller
             $query->where('people', '=', $people );
         }
         $searches=$query->orderBy('price', 'asc')->paginate(5);
-        return view('search_results', ['searches'=> $searches]);
+        return view('search_results', ['searches'=> $searches ]);
+    }
+    public function planshow(Request $request, $id)
+    {
+        $plan = Plan::find($id);
+        return view("planshow", ["plan" => $plan]);
+
+    }
+    public function hotelshow(Request $request, $id)
+    {
+        $hotel = Hotel::find($id);
+        return view("hotelshow", ["hotel" => $hotel]);
     }
 }

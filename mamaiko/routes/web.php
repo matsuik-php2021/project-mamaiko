@@ -15,7 +15,6 @@ use App\Http\Controllers\ReservationController;
 use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
-
 Route::post('/confirm', 'Auth\RegisterController@confirm')->name('confirm');
 Route::post('/save', 'Auth\RegisterController@save')->name('save');
 Route::get('/', 'HotelController@toppage')->name('toppage');
@@ -32,4 +31,6 @@ Route::group(['middleware'=>['auth']],function(){
     Route::get('/plan/{id}/reservation','ReservationController@create')->name('reservation.create');
     Route::post('/reservation/confirm','ReservationController@confirm')->name('reservation.confirm');
     Route::post('/reservation/store','ReservationController@store')->name('reservation.store');
+    Route::get('/plans/{id}', 'HotelController@planshow')->name('planshow');
+    Route::get('/hotels/{id}', 'HotelController@hotelshow')->name('hotelshow');
 });
