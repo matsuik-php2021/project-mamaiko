@@ -22,6 +22,12 @@ class HomeController extends Controller
         return view('home/update');
     }
 
+    public function confirm(Request $request)
+    {
+        // dd($request);
+        return view('home/confirm', ['user' => $request]);
+    }
+
     public function store(Request $request)
     {
         $user = User::where('id','=',\Auth::id())->get()[0];

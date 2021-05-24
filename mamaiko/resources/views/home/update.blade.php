@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <h1>会員情報更新</h1>
-<form action="{{route('store')}}" method="post">
+<form action="{{route('home.confirm')}}" method="post">
     @csrf
     <!-- @method('put') -->
     <p>
