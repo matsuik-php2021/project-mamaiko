@@ -17,11 +17,15 @@ Auth::routes();
 
 Route::post('/confirm', 'Auth\RegisterController@confirm')->name('confirm');
 Route::post('/save', 'Auth\RegisterController@save')->name('save');
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HotelController@toppage')->name('toppage');
+Route::get('/search_results', 'HotelController@index')->name('search_results');
 
 Route::group(['middleware'=>['auth']],function(){
     Route::get('home','HomeController@index')->name('home');
+    Route::get('/mypage','HomeController@mypage')->name('mypage');
+    Route::get('/user_info/update','HomeController@update')->name('home.update');
+    Route::post('/user_info/confirm','HomeController@confirm')->name('home.confirm');
+    Route::post('/user_info/store','HomeController@store')->name('home.store');
+    Route::get('/withdraw','HomeController@withdraw')->name('withdraw');
+    Route::get('/destroy','HomeController@destroy')->name('destroy');
 });
-
-Route::get('/', 'HotelController@toppage')->name('toppage');
-Route::get('/search_results', 'HotelController@index')->name('search_results');
