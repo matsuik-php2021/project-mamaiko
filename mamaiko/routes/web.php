@@ -14,7 +14,6 @@
 use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
-
 Route::post('/confirm', 'Auth\RegisterController@confirm')->name('confirm');
 Route::post('/save', 'Auth\RegisterController@save')->name('save');
 Route::get('/', 'HotelController@toppage')->name('toppage');
@@ -28,4 +27,6 @@ Route::group(['middleware'=>['auth']],function(){
     Route::post('/user_info/store','HomeController@store')->name('home.store');
     Route::get('/withdraw','HomeController@withdraw')->name('withdraw');
     Route::get('/destroy','HomeController@destroy')->name('destroy');
+    Route::get('/plans/{id}', 'HotelController@planshow')->name('planshow');
+    Route::get('/hotels/{id}', 'HotelController@hotelshow')->name('hotelshow');
 });
