@@ -34,3 +34,22 @@ Route::group(['middleware'=>['auth']],function(){
     Route::get('/plans/{id}', 'HotelController@planshow')->name('planshow');
     Route::get('/hotels/{id}', 'HotelController@hotelshow')->name('hotelshow');
 });
+
+Route::namespace('Manager')->prefix('manager')->name('manager.')->group(function () {
+
+    // ログイン認証関連
+    Auth::routes([
+        'register' => true,
+        'reset'    => false,
+        'verify'   => false
+    ]);
+
+    // ログイン認証後
+    Route::middleware('auth:manager')->group(function () {
+
+        // TOPページ
+        Route::resource('home', 'HomeController', ['only' => 'index']);
+
+    });
+
+});
