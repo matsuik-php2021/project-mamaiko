@@ -74,14 +74,6 @@
                             <a class="dropdown-item" href="{{route('home.update')}}">会員情報更新</a>
                             <a class="dropdown-item" href="{{route('withdraw')}}">退会</a>
                         </div>
-
-                             <!-- <a class="dropdown-item" href="">予約一覧</a> 
-                             <a class="dropdown-item" href="">宿泊履歴</a>
-                             <a class="dropdown-item" href="">お気に入り</a>
-                             <a class="dropdown-item" href="{{route('home.update')}}">会員情報更新</a>
-                             <a class="dropdown-item" href="{{route('withdraw')}}">退会</a>
-                            <div class="dropdown-divider"></div> 
-                            <a class="dropdown-item" href="#">Something else here</a> -->
                         </div>
                     </li>
                     @else

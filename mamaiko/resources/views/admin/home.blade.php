@@ -5,7 +5,7 @@
     <a href="{{route('admin.')}}" class="btn btn-secondary">予約管理(未実装)</a>
 </p>
 <p>
-    <a href="{{route('admin.usersList')}}" class="btn btn-secondary">会員管理</a>
+    <a href="{{route('admin.user.index')}}" class="btn btn-secondary">会員管理</a>
 </p>
 <p>
     <a href="{{route('admin.')}}" class="btn btn-secondary">ホテル情報管理(未実装)</a>
