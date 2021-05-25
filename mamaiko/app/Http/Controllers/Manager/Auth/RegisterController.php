@@ -41,13 +41,14 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'email'    => ['required', 'string', 'email', 'max:255', 'unique:admins'],
+            'email'    => ['required', 'string', 'email', 'max:255', 'unique:managers'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
 
     protected function create(array $data)
     {
+        dd("create function");
         return Manager::create([
             'email'    => $data['email'],
             'password' => Hash::make($data['password']),
