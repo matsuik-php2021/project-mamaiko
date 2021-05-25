@@ -37,3 +37,22 @@ Route::group(['middleware'=>['auth']],function(){
     Route::post('/favoritestore', 'FavoriteController@favoritestore')->name('home.favoritepost');
     Route::delete('/favoritedestroy', 'Favoritecontroller@favoritedestroy')->name('home.favoritedestroy');
 });
+
+Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
+
+    // ログイン認証関連
+    Auth::routes([
+        'register' => true,
+        'reset'    => false,
+        'verify'   => false
+    ]);
+
+    // ログイン認証後
+    Route::middleware('auth:admin')->group(function () {
+
+        // TOPページ
+        Route::resource('home', 'HomeController', ['only' => 'index']);
+
+    });
+
+});
