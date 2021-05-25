@@ -44,18 +44,22 @@ header .brand{
     font-size: 1.3rem;
 }
 
+mamaiko{
+    position: relative;
+}
+
 .navigation{ 
-    float:left;
+    position: absolute;
+    left: 75%;
+    bottom: 30%;
     display: flex;
     margin: 0px;
     padding: 0;
     list-style: none;
 }
-#navigation{ 
-    float:right;
-}
+
 .navigation li{
-    padding: 0 10px;
+    padding: 0 20px;
 }
 
 table.table{
