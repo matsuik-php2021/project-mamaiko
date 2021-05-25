@@ -33,6 +33,8 @@ Route::group(['middleware'=>['auth']],function(){
     Route::post('/reservation/store','ReservationController@store')->name('reservation.store');
     Route::get('/plans/{id}', 'HotelController@planshow')->name('planshow');
     Route::get('/hotels/{id}', 'HotelController@hotelshow')->name('hotelshow');
+    Route::get('/reservation/history', 'ReservationController@show_history')->name('reservation.history');
+    Route::get('/reservation/plan', 'ReservationController@show_plan')->name('reservation.plan');
 });
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
