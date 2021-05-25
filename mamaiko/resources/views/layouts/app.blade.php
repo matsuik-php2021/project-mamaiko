@@ -11,7 +11,24 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/css/main.css">
     <style>
-        
+    .project-name{
+        font-size:1.5em;
+        font-family:serif;
+        font-style:bold;
+        text-align:left;
+    }    
+    .header-right{
+        text-align:right; 
+        font-size:1.15em;
+        font-family:serif;
+        margin: 0 0 0 auto;
+    }
+    .header-right2{
+        text-align:right; 
+        font-size:1em;
+        font-family:serif;
+        margin: 0 0 0 auto;
+    }
     body {
         width: 100%;
         height:100vh;
@@ -34,18 +51,18 @@
                         <span class="icon-bar">c</span>
                     </button> -->
                     <ul class="navigation">
-                    <a class="navbar-brand" href="{{route('toppage')}}">ままいこ</a>
+                    <a class="navbar-brand project-name" href="{{route('toppage')}}">ままいこ</a>
                     
                     @if (Auth::check())
                     <li>
                     <form name="logout" method="POST" action="{{route('logout')}}">
                         @csrf
-                        <a class="navbar-brand"href="javascript:logout.submit()">ログアウト</a>
+                        <a class="navbar-brand header-right"href="javascript:logout.submit()">ログアウト</a>
                     </form>
                     </li>
                     
                         <div class="dropdown"> 
-                        <button class="btn btn-secondary dropdown-toggle"
+                        <button class="btn btn-secondary dropdown-toggle header-right2"
                             type="button" id="dropdownMenu1" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             マイページ
@@ -69,10 +86,10 @@
                     </li>
                     @else
                     <li>
-                        <a class="navbar-brand" href="{{route('login')}}">ログイン</a>
+                        <a class="navbar-brand header-right" href="{{route('login')}}">ログイン</a>
                     </li>
                     <li>
-                        <a class="navbar-brand" href="{{route('register')}}">会員登録</a>
+                        <a class="navbar-brand header-right" href="{{route('register')}}">会員登録</a>
                     </li>
                     </ul>
                     @endif
