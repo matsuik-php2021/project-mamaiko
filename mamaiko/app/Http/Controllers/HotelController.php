@@ -47,6 +47,7 @@ class HotelController extends Controller
     public function hotelshow(Request $request, $id)
     {
         $hotel = Hotel::find($id);
-        return view("hotelshow", ["hotel" => $hotel]);
+        $plans = $hotel->plans()->get();
+        return view("hotelshow", ["hotel" => $hotel, "plans" => $plans]);
     }
 }
