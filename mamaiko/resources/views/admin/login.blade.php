@@ -9,7 +9,7 @@
         @endforeach
     </ul>
 @endif
-<form action="{{route('login')}}" method="post">
+<form action="{{route('admin.login')}}" method="post">
     @csrf
     <p>
         <label>メールアドレス<br>
