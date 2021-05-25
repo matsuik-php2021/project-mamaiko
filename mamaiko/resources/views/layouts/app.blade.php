@@ -20,14 +20,14 @@
     .header-right{
         text-align:right; 
         font-size:1.15em;
-        font-family:serif;
         margin: 0 0 0 auto;
+
     }
     .header-right2{
         text-align:right; 
         font-size:1em;
-        font-family:serif;
         margin: 0 0 0 auto;
+        font-style:bold;
     }
     body {
         width: 100%;
@@ -70,7 +70,7 @@
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
                             <a class="dropdown-item" href="#!">予約一覧</a>
                             <a class="dropdown-item" href="#!">宿泊履歴</a>
-                            <a class="dropdown-item" href="#!">お気に入り</a>
+                            <a class="dropdown-item" href="{{route('favoriteindex')}}">お気に入り</a>
                             <a class="dropdown-item" href="{{route('home.update')}}">会員情報更新</a>
                             <a class="dropdown-item" href="{{route('withdraw')}}">退会</a>
                         </div>

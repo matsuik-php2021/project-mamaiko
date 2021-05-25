@@ -33,4 +33,7 @@ Route::group(['middleware'=>['auth']],function(){
     Route::post('/reservation/store','ReservationController@store')->name('reservation.store');
     Route::get('/plans/{id}', 'HotelController@planshow')->name('planshow');
     Route::get('/hotels/{id}', 'HotelController@hotelshow')->name('hotelshow');
+    Route::get('/favoriteindex', 'FavoriteController@favoriteindex')->name('home.favoriteindex');
+    Route::post('/favoritestore', 'FavoriteController@favoritestore')->name('home.favoritepost');
+    Route::delete('/favoritedestroy', 'Favoritecontroller@favoritedestroy')->name('home.favoritedestroy');
 });
