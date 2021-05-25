@@ -49,9 +49,14 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
 
         // TOPページ
         Route::resource('home', 'HomeController', ['only' => 'index']);
+        // 会員管理
         Route::get('usersList', 'UserController@index')->name('user.index');
-        Route::get('/admin/usersList/{id}/info','UserController@update')->name('user.update');
-        Route::post('/admin/usersList/info/update','UserController@store')->name('user.store');
+        Route::get('/usersList/{id}/info','UserController@edit')->name('user.edit');
+        Route::post('/usersList/info/update','UserController@update')->name('user.update');
+        // ホテル管理
+        Route::get('hotelsList', 'HotelController@index')->name('hotel.index');
+        Route::get('/hotelsList/{id}/info','HotelController@edit')->name('hotel.edit');
+        Route::post('/hotelsList/info/update','HotelController@update')->name('hotel.update');
     });
 
 });

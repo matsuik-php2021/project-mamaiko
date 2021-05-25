@@ -6,11 +6,11 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class HotelController extends Controller
 {
     public function index()
     {
-        $users = User::query()->get();
+        $users = Hotel::query()->get();
         return view('admin.user.index',['users'=>$users]);
     }
 
@@ -22,13 +22,13 @@ class UserController extends Controller
 
     public function update(Request $request)
     {
-        $user = User::where('id','=',$request->id)->get()[0];
-        if($user==null){
+        $hotel = User::where('id','=',$request->id)->get()[0];
+        if($hotel==null){
             dd("ERROR : ユーザーが取得できませんでした。");
         }
-        $user->update($request->all());
-        $user->save();
-        return redirect(route('admin.user.index'));
+        $hotel->update($request->all());
+        $hotel->save();
+        return redirect(route('admin.hotel.index'));
         // return redirect(route('admin.user.update',$user->id));
     }
 

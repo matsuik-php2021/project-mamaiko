@@ -19,7 +19,7 @@
             <td>{{$user->address}}</td>
             <td>{{$user->tel}}</td>
             <td>{{$user->birthday}}</td>
-            <td><a href="{{route('admin.user.update',$user->id)}}" class="btn btn-secondary">変更</a></td>
+            <td><a href="{{route('admin.user.edit',$user->id)}}" class="btn btn-secondary">変更</a></td>
         </tr>
         @endforeach
   </table>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <h1>会員情報更新(管理者ページ)</h1>
-<form action="{{route('admin.user.store')}}" method="post">
+<form action="{{route('admin.user.update')}}" method="post">
     @csrf
     <p>
         <label>名前<br>

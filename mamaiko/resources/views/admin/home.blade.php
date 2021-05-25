@@ -8,7 +8,7 @@
     <a href="{{route('admin.user.index')}}" class="btn btn-secondary">会員管理</a>
 </p>
 <p>
-    <a href="{{route('admin.')}}" class="btn btn-secondary">ホテル情報管理(未実装)</a>
+    <a href="{{route('admin.hotel.index')}}" class="btn btn-secondary">ホテル情報管理(未実装)</a>
 </p>
 
 <p><form action="{{route('admin.logout')}}" method="post">
