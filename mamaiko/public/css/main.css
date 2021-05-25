@@ -92,3 +92,6 @@ a:link {
     /* color:rgba(8, 90, 86, 0.76); */
     font-weight:bold;
 }
+#link {
+    font-weight:normal;
+}

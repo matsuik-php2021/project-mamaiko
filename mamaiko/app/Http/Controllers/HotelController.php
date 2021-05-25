@@ -50,4 +50,5 @@ class HotelController extends Controller
         $plans = $hotel->plans()->get();
         return view("hotelshow", ["hotel" => $hotel, "plans" => $plans]);
     }
+
 }
