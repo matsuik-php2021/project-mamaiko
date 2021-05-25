@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<h1>ユーザーリスト</h1>
+<h1>ホテルリスト</h1>
 <table class="table">
     <tr>
       <th>ID</th>

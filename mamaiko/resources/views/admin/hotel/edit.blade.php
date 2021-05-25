@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<h1>会員情報更新(管理者ページ)</h1>
+<h1>ホテル情報更新(管理者ページ)</h1>
 <form action="{{route('admin.hotel.update')}}" method="post">
     @csrf
     <p>
@@ -20,7 +20,7 @@
     </p>
     <p>
         <label>説明<br>
-        <textarea name="address" cols="30" rows="10" value="{{$hotel->address}}"></textarea>
+        <textarea name="address" cols="30" rows="10">{{$hotel->description}}</textarea>
     </p>
     <p>
         <label>住所<br>
