@@ -27,7 +27,7 @@
         <input type="text" name="address" value="{{$hotel->address}}"></label>
     </p>
     <p>
-        <label>アクセル<br>
+        <label>アクセス<br>
         <input type="text" name="tel" value="{{$hotel->access}}"></label>
     </p>
     <p>

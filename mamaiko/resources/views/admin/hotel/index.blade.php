@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @section('content')
 <h1>ホテルリスト</h1>
+<p>
+    <a href="{{route('admin.hotel.create')}}" class="btn btn-secondary">新規登録</a>
+</p>
 <table class="table">
     <tr>
       <th>ID</th>

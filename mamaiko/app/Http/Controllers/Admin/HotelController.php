@@ -14,6 +14,27 @@ class HotelController extends Controller
         return view('admin.hotel.index',['hotels'=>$hotels]);
     }
 
+    public function create()
+    {
+        $categories=\App\Category::all();
+        return view('admin.hotel.create',['categories'=>$categories]);
+    }
+
+    public function store(Request $request)
+    {
+        $hotel = new Hotel;
+        $hotel->name = $request->name;
+        $hotel->category_id = $request->category_id;
+        $hotel->address = $request->address;
+        $hotel->access = $request->access;
+        $hotel->description = $request->description;
+        $hotel->checkin_time = $request->checkin_time;
+        $hotel->checkout_time = $request->checkout_time;
+        $hotel->save();
+        return redirect(route('admin.hotel.index'));
+        // return redirect(route('admin.hotel.update',$user->id));
+    }
+
     public function edit($id)
     {
         $hotel = Hotel::find($id);

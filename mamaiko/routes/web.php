@@ -57,6 +57,8 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::get('hotelsList', 'HotelController@index')->name('hotel.index');
         Route::get('/hotelsList/{id}/info','HotelController@edit')->name('hotel.edit');
         Route::post('/hotelsList/info/update','HotelController@update')->name('hotel.update');
+        Route::get('/hotelsList/create','HotelController@create')->name('hotel.create');
+        Route::post('/hotelsList/store','HotelController@store')->name('hotel.store');
     });
 
 });
