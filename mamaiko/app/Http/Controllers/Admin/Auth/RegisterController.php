@@ -35,7 +35,7 @@ class RegisterController extends Controller
 
     public function showRegistrationForm()
     {
-        return view('admin.auth.register');
+        return view('admin.register');
     }
 
     protected function validator(array $data)
@@ -49,7 +49,6 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return Admin::create([
-            'name'     => $data['name'],
             'email'    => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
