@@ -70,7 +70,7 @@
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
                             <a class="dropdown-item" href="#!">予約一覧</a>
                             <a class="dropdown-item" href="#!">宿泊履歴</a>
-                            <a class="dropdown-item" href="{{route('favoriteindex')}}">お気に入り</a>
+                            <a class="dropdown-item" href="{{route('home.favoriteindex')}}">お気に入り</a>
                             <a class="dropdown-item" href="{{route('home.update')}}">会員情報更新</a>
                             <a class="dropdown-item" href="{{route('withdraw')}}">退会</a>
                         </div>

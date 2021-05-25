@@ -57,4 +57,8 @@ class User extends Authenticatable
     {
         //
     }
+    public function isLike($hotel_id)
+    {
+        return $this->favorite_hotels()->where('hotels.id', $hotel_id)->exists();
+    }
 }

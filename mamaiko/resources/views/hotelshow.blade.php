@@ -46,4 +46,19 @@
     <dd><a href = "{{ route('reservation.create', $plan->id) }}">{{ $plan->name }}</a> : {{ $plan->people }}人部屋、{{ $plan->price }}円</dd>
 
     @endforeach
+
+    @if(\Auth::user()->isLike($hotel->id))
+        <form action="{{route('favorites.destroy') }}" method="post">
+        @csrf
+        <input type="hidden" name="_method" value="delete">
+        <input type="hidden" name="hotel_id" value="{{$hotel->id}}">
+        <button type="submit"> お気に入り解除</button>
+        </form>
+    @else
+        <form action="{{route('favorites.store') }}" method="post">
+            @csrf
+            <input type="hidden" name="hotel_id" value="{{$hotel->id }}">
+            <button type="submit">お気に入り登録</button>
+        </form>
+    @endif
 @endsection
