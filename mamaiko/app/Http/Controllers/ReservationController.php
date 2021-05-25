@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Reservation;
+use App\User;
+use Illuminate\Support\Facades\Auth;
+use DateTime;
 class ReservationController extends Controller
 {
     /**
@@ -60,9 +63,27 @@ class ReservationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show_history()
     {
-        //
+        $id = Auth::id();
+        $nowdatetime = date("Y-m-d");
+        // dd($nowdatetime);
+        $query = Reservation::query();
+        $query->where("user_id", "=", $id);
+        $query->where("checkout_date", "<=", $nowdatetime);
+        $reservations = $query->get();
+        return view("home.reservationhistory", ["reservations" => $reservations]);
+    }
+    public function show_plan()
+    {
+        $id = Auth::id();
+        $nowdatetime = date("Y-m-d");
+        // dd($nowdatetime);
+        $query = Reservation::query();
+        $query->where("user_id", "=", $id);
+        $query->where("checkout_date", ">", $nowdatetime);
+        $reservations = $query->get();
+        return view("home.reservationplan", ["reservations" => $reservations]);
     }
 
     /**
