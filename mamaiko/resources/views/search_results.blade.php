@@ -12,7 +12,7 @@
     @foreach ($searches as $search)
     <tr>
         <td><a href = "{{ route('hotelshow', $search->hotel_id) }}">{{ $search->hotel->name }}</a></td>
-        <td><a href = "{{ route('reservation.create', $search->id) }}">{{ $search->name }} </td>
+        <td><a href = "{{ route('reservation.create', $search->id) }}">{{ $search->name }} </a></td>
         <td>{{ $search->price }}</td>
         <td>{{ $search->people }}</td>
     </tr>
