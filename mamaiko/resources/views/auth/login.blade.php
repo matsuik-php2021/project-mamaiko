@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <h2>ログイン</h2>
-@include('commons/'flash')
+@include('commons/flash')
 <form action="{{route('login')}}" method="post">
     @csrf
     <p>

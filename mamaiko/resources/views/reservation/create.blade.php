@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <h2>予約画面</h2>
-@include('commons/'flash')
+@include('commons/flash')
 <h3>{{$plan->name}}</h3>
 
 <p>{{$plan->description}}</p>

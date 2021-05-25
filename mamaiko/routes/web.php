@@ -35,6 +35,9 @@ Route::group(['middleware'=>['auth']],function(){
     Route::get('/hotels/{id}', 'HotelController@hotelshow')->name('hotelshow');
     Route::get('/reservation/history', 'ReservationController@show_history')->name('reservation.history');
     Route::get('/reservation/plan', 'ReservationController@show_plan')->name('reservation.plan');
+    Route::get('/favoriteindex', 'FavoriteController@index')->name('home.favoriteindex');
+    Route::post('/favoritestore', 'FavoriteController@store')->name('favorites.store');
+    Route::delete('/favoritedestroy', 'Favoritecontroller@destroy')->name('favorites.destroy');
 });
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {

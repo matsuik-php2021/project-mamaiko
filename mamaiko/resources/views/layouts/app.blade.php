@@ -21,11 +21,13 @@
         text-align:right; 
         font-size:1.15em;
         margin: 0 0 0 auto;
+
     }
     .header-right2{
         text-align:right; 
         font-size:1em;
         margin: 0 0 0 auto;
+        font-style:bold;
     }
     body {
         width: 100%;
@@ -62,27 +64,19 @@
                     </li>
                     <li>
                         <div class="dropdown"> 
-                        <button class="btn btn-secondary dropdown-toggle header-right2"
-                            type="button" id="dropdownMenu1" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            マイページ
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                            <a class="dropdown-item" href="{{route('reservation.plan')}}">予約一覧</a>
-                            <a class="dropdown-item" href="{{route('reservation.history')}}">宿泊履歴</a>
-                            <a class="dropdown-item" href="#!">お気に入り</a>
-                            <a class="dropdown-item" href="{{route('home.update')}}">会員情報更新</a>
-                            <a class="dropdown-item" href="{{route('withdraw')}}">退会</a>
+                            <button class="btn btn-secondary dropdown-toggle header-right2"
+                                type="button" id="dropdownMenu1" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                マイページ
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <a class="dropdown-item" href="{{route('reservation.plan')}}">予約一覧</a>
+                                <a class="dropdown-item" href="{{route('reservation.history')}}">宿泊履歴</a>
+                                <a class="dropdown-item" href="{{route('home.favoriteindex')}}">お気に入り</a>
+                                <a class="dropdown-item" href="{{route('home.update')}}">会員情報更新</a>
+                                <a class="dropdown-item" href="{{route('withdraw')}}">退会</a>
+                            </div>
                         </div>
-
-                             /* <!-- <a class="dropdown-item" href="">予約一覧</a> 
-                             <a class="dropdown-item" href="">宿泊履歴</a>
-                             <a class="dropdown-item" href="">お気に入り</a>
-                             <a class="dropdown-item" href="{{route('home.update')}}">会員情報更新</a>
-                             <a class="dropdown-item" href="{{route('withdraw')}}">退会</a>
-                            <div class="dropdown-divider"></div> 
-                            <a class="dropdown-item" href="#">Something else here</a> -->
-                        </div> */
                     </li>
                     @else
                     <li>
@@ -91,8 +85,8 @@
                     <li>
                         <a class="navbar-brand header-right" href="{{route('register')}}" id="link">会員登録</a>
                     </li>
-                    </ul>
                     @endif
+                    </ul>
                 </div>
             </div>
         </nav>
