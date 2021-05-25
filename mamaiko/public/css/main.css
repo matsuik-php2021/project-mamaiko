@@ -1,18 +1,21 @@
 html{
-    font-size: 90%;
+    font-size: 105%;
     line-height: 1.8;
+    
 }
 
 body{
     margin: 0;
     padding: 0;
     font-size: 1rem;
+    font-family: serif;
 }
 .haikei {
     padding: 30px;
     width: 500px;
     background: rgba(255, 255, 255, 0.5);
     color: black;
+    
 }
 a:link{
     text-decoration: none;
@@ -88,11 +91,29 @@ ul.pagination{
     padding: 0px;
     list-style: none;
 }
-li.page-item{
+li.page-item {
     display: inline-block;
     padding: 8px;
-}
+    }
+
 a:link {
     /* color:rgba(8, 90, 86, 0.76); */
     font-weight:bold;
 }
+
+#btn{
+    display: flex;
+    font-size:1em;
+    display:block;
+    width:100px;
+    padding-top:5px;
+    padding-bottom:5px;
+    padding-right:10px;
+    padding-left:10px;
+    text-align:center;
+    border:2px solid;
+    border-color:#aaaaaa #444444 #444444 #aaaaaa;
+    background:#cccccc;
+    margin-left:20px;
+    margin-right:20px;
+    }

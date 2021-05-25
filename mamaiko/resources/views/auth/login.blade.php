@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<h1>ログイン</h1>
+<h2>ログイン</h2>
 @if ($errors->count())
     <ul class="alert">
         @foreach($errors->all() as $error)

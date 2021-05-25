@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<h1>マイページ</h1>
+<h2>マイページ</h2><br>
     <p><a href="{{route('mypage')}}">予約一覧</a></P>
     <p><a href="{{route('mypage')}}">宿泊履歴</a></P>
     <p><a href="{{route('mypage')}}">お気に入り</a></P>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<h1>予約の確認画面</h1>
+<h2>予約の確認画面</h2>
 <p>以下の内容に間違いがないか、ご確認ください。</p>
     <dl>
         <dt>プラン名</dt>
