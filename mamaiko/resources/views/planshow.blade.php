@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<h1>プランの詳細</h1>
+<h1>プランの詳細</h1><br>
 <table border="1">
     <tr>
         <th>プラン名</th>

@@ -1,11 +1,11 @@
 @extends('layouts.app')
 @section('content')
-<h1>退会画面</h1>
+<h2>退会画面</h2><br>
 
-<h2>本当に退会しますか？</h2>
+<h4>本当に退会しますか？</h4><br>
 
-<p><a href="{{route('destroy')}}">はい</a></P>
-<p><a href="{{route('mypage')}}">いいえ</a></P>
 
+<a href="{{route('destroy')}}" id="btn" style="display:inline">はい</a>
+<a href="{{route('mypage')}}" id="btn" style="display:inline">いいえ</a>
 
 @endsection

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<h1>検索結果</h1>
+<h2>検索結果</h2>
 @if(!empty($searches))
 <table border="1">
     <tr>

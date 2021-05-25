@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<h1>新規会員登録</h1>
+<h2>新規会員登録</h2>
 @include('commons/'flash')
 <form action="{{route('confirm')}}" method="post">
     @csrf

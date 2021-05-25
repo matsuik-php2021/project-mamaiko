@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<h1>ホテルの詳細</h1>
+<h2>ホテルの詳細</h2>
 <!-- <table border="1">
     <tr>
         <th>ホテル名</th> -->

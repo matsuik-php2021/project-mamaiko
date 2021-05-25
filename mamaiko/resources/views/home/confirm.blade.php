@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
-<h1>更新内容 確認画面</h1>
-<p>以下の内容に更新します。</p>
+<h2>更新内容 確認画面</h2>
+<p>以下の内容に更新します。</p><br>
     <dl>
         <dt>お名前</dt>
         <dd>{{ $user->name }}</dd>

@@ -49,9 +49,10 @@
                         <span class="icon-bar">b</span>
                         <span class="icon-bar">c</span>
                     </button> -->
-                    <ul class="navigation">
+                    
                     <a class="navbar-brand project-name" href="{{route('toppage')}}">ままいこ</a>
                     
+                    <ul class="navigation">
                     @if (Auth::check())
                     <li>
                     <form name="logout" method="POST" action="{{route('logout')}}">
