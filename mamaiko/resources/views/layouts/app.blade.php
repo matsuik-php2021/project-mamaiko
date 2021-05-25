@@ -6,6 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mamaiko</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/main.css">
+    <style>
+        
+    body {
+        width: 100%;
+        height:100vh;
+        background-image: url(/images/toppage.jpg);  
+        background-position: center center; 
+        background-repeat: no-repeat;  
+        background-attachment: fixed; 
+        background-size: cover;
+    }
+    </style>    
 </head>
 <body>
     <header>
@@ -17,16 +33,48 @@
                         <span class="icon-bar">b</span>
                         <span class="icon-bar">c</span>
                     </button> -->
+                    <ul class="navigation">
                     <a class="navbar-brand" href="{{route('toppage')}}">ままいこ</a>
+                    
                     @if (Auth::check())
-                    <a href="{{route('mypage')}}">マイページ</a>
+                    <li>
                     <form name="logout" method="POST" action="{{route('logout')}}">
                         @csrf
-                        <a href="javascript:logout.submit()">ログアウト</a>
+                        <a class="navbar-brand"href="javascript:logout.submit()">ログアウト</a>
                     </form>
+                    </li>
+                    
+                        <div class="dropdown"> 
+                        <button class="btn btn-secondary dropdown-toggle"
+                            type="button" id="dropdownMenu1" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            マイページ
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <a class="dropdown-item" href="#!">予約一覧</a>
+                            <a class="dropdown-item" href="#!">宿泊履歴</a>
+                            <a class="dropdown-item" href="#!">お気に入り</a>
+                            <a class="dropdown-item" href="{{route('home.update')}}">会員情報更新</a>
+                            <a class="dropdown-item" href="{{route('withdraw')}}">退会</a>
+                        </div>
+
+                             <!-- <a class="dropdown-item" href="">予約一覧</a> 
+                             <a class="dropdown-item" href="">宿泊履歴</a>
+                             <a class="dropdown-item" href="">お気に入り</a>
+                             <a class="dropdown-item" href="{{route('home.update')}}">会員情報更新</a>
+                             <a class="dropdown-item" href="{{route('withdraw')}}">退会</a>
+                            <div class="dropdown-divider"></div> 
+                            <a class="dropdown-item" href="#">Something else here</a> -->
+                        </div>
+                    </li>
                     @else
-                        <a href="{{route('login')}}">ログイン</a>
-                        <a href="{{route('register')}}">会員登録</a>
+                    <li>
+                        <a class="navbar-brand" href="{{route('login')}}">ログイン</a>
+                    </li>
+                    <li>
+                        <a class="navbar-brand" href="{{route('register')}}">会員登録</a>
+                    </li>
+                    </ul>
                     @endif
                 </div>
             </div>
@@ -34,7 +82,9 @@
     </header>
     <main>
         <div class="container">
+            <div class="haikei">
             @yield('content')
+            </div>
         </div>
     </main>    
 </body>
