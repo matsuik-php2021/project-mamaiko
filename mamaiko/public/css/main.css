@@ -10,7 +10,7 @@ body{
 }
 .haikei {
     padding: 30px;
-    width: 500px;
+    min-width: 500px;
     background: rgba(255, 255, 255, 0.5);
     color: black;
 }

@@ -49,7 +49,8 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
 
         // TOPページ
         Route::resource('home', 'HomeController', ['only' => 'index']);
-
+        Route::get('usersList', 'UserController@index')->name('usersList');
+        Route::get('/admin/usersList/{id}/info','UserController@update')->name('user_info');
     });
 
 });
