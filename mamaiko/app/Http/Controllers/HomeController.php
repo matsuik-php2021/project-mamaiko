@@ -24,7 +24,17 @@ class HomeController extends Controller
 
     public function confirm(Request $request)
     {
-        // dd($request);
+        $nowdatetime = date("Y-m-d");
+        $myEmail = $request->email;
+        $myTel = $request->tel;
+        $this->validate($request, [
+            'name' => 'required|string',
+            'email' => 'required|email|unique:users,email,'.$myEmail.',email',
+            'password' => 'required|confirmed|min:6',
+            'address' => 'required',
+            'tel' => 'required |  regex:/^[0-9]+$/ | digits_between:8,11|unique:users,tel,'.$myTel.',tel',
+            'birthday' => 'required|date|before:'.$nowdatetime,
+        ]);
         return view('home/confirm', ['user' => $request]);
     }
 

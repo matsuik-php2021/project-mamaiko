@@ -26,6 +26,10 @@
     <input type="hidden" name="tel" value="{{ $user->tel }}"></label>
     <label>
     <input type="hidden" name="email" value="{{ $user->email }}"></label>
+    <label>
+    <input type="hidden" name="password" value="{{ $user->password }}"></label>
+    <label>
+    <input type="hidden" name="password_confirmation" value="{{ $user->password_confirmation }}"></label>
 <p>
     <button type="submit">この内容で登録する</button>
 </p>
