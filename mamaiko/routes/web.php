@@ -38,6 +38,7 @@ Route::group(['middleware'=>['auth']],function(){
     Route::get('/favoriteindex', 'FavoriteController@index')->name('home.favoriteindex');
     Route::post('/favoritestore', 'FavoriteController@store')->name('favorites.store');
     Route::delete('/favoritedestroy', 'Favoritecontroller@destroy')->name('favorites.destroy');
+    Route::get('/reservation/destroy','ReservationController@destroy')->name('reservation.destroy');
 });
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
