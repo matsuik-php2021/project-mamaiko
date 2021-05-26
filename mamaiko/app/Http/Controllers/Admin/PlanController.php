@@ -8,24 +8,22 @@ use Illuminate\Http\Request;
 
 class PlanController extends Controller
 {
-    public function create()
+    public function create($id)
     {
-        $categories=\App\Category::all();
-        return view('admin.plan.create',['categories'=>$categories]);
+        return view('admin.plan.create',["hotel_id"=>$id]);
     }
 
     public function store(Request $request)
     {
-        $hotel = new Hotel;
-        $hotel->name = $request->name;
-        $hotel->category_id = $request->category_id;
-        $hotel->address = $request->address;
-        $hotel->access = $request->access;
-        $hotel->description = $request->description;
-        $hotel->checkin_time = $request->checkin_time;
-        $hotel->checkout_time = $request->checkout_time;
-        $hotel->save();
-        return redirect(route('admin.plan.index'));
+        $plan = new Plan;
+        $plan->name = $request->name;
+        $plan->description = $request->description;
+        $plan->price = $request->price;
+        $plan->room_count = $request->room_count;
+        $plan->people = $request->people;
+        $plan->hotel_id = $request->hotel_id;
+        $plan->save();
+        return redirect(route('admin.hotel.show',$request->hotel_id));
         // return redirect(route('admin.plan.update',$user->id));
     }
 

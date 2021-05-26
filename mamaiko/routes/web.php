@@ -68,7 +68,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         //プラン管理
         Route::get('/plans/{id}/edit','PlanController@edit')->name('plan.edit');
         Route::post('/plans/info/update','PlanController@update')->name('plan.update');
-        Route::get('/plans/create','PlanController@create')->name('plan.create');
+        Route::get('/plans/of{id}/create','PlanController@create')->name('plan.create');
         Route::post('/plans/store','PlanController@store')->name('plan.store');
     });
 

@@ -20,8 +20,11 @@
         <dt>チェックアウト</dt>
         <dd>{{ $hotel->checkout_time }}</dd>
     </dl>
-    <h4>ご利用可能プラン</h4>
-    @foreach ($plans as $plan)
+<h4>ご利用可能プラン</h4>
+<p>
+    <a href="{{route('admin.plan.create',$hotel->id)}}" class="btn btn-secondary">プラン作成</a>
+</p>
+@foreach ($plans as $plan)
     <div class="card">
         <div class="card-body">
             <h4 class="card-title">{{$plan->name}}</h4>
@@ -48,6 +51,6 @@
             <a href="{{route('admin.plan.edit',$plan->id)}}" class="btn btn-secondary" id = "right">変更</a>
         </div>
     </div>
-    @endforeach
+@endforeach
 
 @endsection
