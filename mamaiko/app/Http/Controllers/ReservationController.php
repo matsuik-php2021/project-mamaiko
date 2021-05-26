@@ -94,7 +94,10 @@ class ReservationController extends Controller
      */
     public function edit($id)
     {
-        //
+        $query = Reservation::query();
+        $query->where("id", "=", $id);
+        $reservation = $query->get()[0];
+        return view('reservation.update', ['reservation' => $reservation]);
     }
 
     /**
@@ -104,9 +107,12 @@ class ReservationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $reservation = Reservation::where('id','=',$request->id)->get()[0];
+        $reservation->update($request->all());
+        $reservation->save();
+        return redirect(route('reservation.plan'));
     }
 
     /**
@@ -117,6 +123,8 @@ class ReservationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $reservation = Reservation::where('id','=', $id)->get()[0];
+        $reservation->delete();
+        return redirect(route('reservation.plan'));
     }
 }

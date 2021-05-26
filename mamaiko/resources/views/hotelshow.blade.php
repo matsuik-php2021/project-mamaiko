@@ -2,6 +2,7 @@
 @section('content')
 <h2>ホテルの詳細</h2>
     <dl>
+    <img src="/images/hotel{{$hotel->id}}.jpg" width="85%" height="85%">
         <dt>ホテル名</dt>
         <dd>{{ $hotel->name }}</dd>
         <dt>カテゴリ</dt>
@@ -17,6 +18,7 @@
         <dt>チェックアウト</dt>
         <dd>{{ $hotel->checkout_time }}</dd>
     </dl>
+    
     <dt>ご利用可能プラン</dt>
     @foreach($plans as $plan)
     <dd><a href = "{{ route('reservation.create', $plan->id) }}">{{ $plan->name }}</a> : {{ $plan->people }}人部屋、{{ $plan->price }}円</dd>
