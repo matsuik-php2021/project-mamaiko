@@ -12,6 +12,7 @@
         <td><a href = "{{ route('hotelshow', $reservation->hotel_id) }}">{{ $reservation->hotel->name }}</a></td>
         <td>{{ $reservation->plan->name }} </a></td>
         <td>{{ $reservation->checkin_date }} ~ {{ $reservation->checkout_date }}</td>
+        </td>
     </tr>
     @endforeach
 </table>   

@@ -41,6 +41,8 @@ Route::group(['middleware'=>['auth']],function(){
     Route::get('/plan/{id}/reservation/edit', 'ReservationController@edit')->name('reservation.edit');
     Route::post('/plan/reservation/update', 'ReservationController@update')->name('reservation.update');
     Route::get('/reservation/{id}/destroy','ReservationController@destroy')->name('reservation.destroy');
+    Route::get('/hotels/{id}/review', 'ReviewController@index');
+    Route::get('/review/post', 'ReviewController@review');
 });
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {

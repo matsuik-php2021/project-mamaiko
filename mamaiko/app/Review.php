@@ -18,4 +18,7 @@ class Review extends Model
     {
         return $this->belongsTo(Hotel::class);
     }
+    public function comments(){
+        return $this->hasMany('Comment', 'id');
+    }
 }

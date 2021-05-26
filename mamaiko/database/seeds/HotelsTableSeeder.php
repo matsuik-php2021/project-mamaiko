@@ -21,6 +21,7 @@ class HotelsTableSeeder extends Seeder
                 'description' => '星' . $i . '個のホテル',
                 'checkin_time' => '21:00:00',
                 'checkout_time' => '10:00:00',
+                'file_name' => '',
             ]);
             $hotel->save();
         }
