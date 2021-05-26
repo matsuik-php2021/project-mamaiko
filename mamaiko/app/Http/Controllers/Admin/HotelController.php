@@ -38,7 +38,7 @@ class HotelController extends Controller
         $hotel->checkin_time = $request->checkin_time;
         $hotel->checkout_time = $request->checkout_time;
         $hotel->save();
-        return redirect(route('admin.hotel.index'));
+        return redirect(route('admin.hotel.show',$hotel->id));
         // return redirect(route('admin.hotel.update',$user->id));
     }
 
@@ -57,7 +57,7 @@ class HotelController extends Controller
         }
         $hotel->update($request->all());
         $hotel->save();
-        return redirect(route('admin.hotel.index'));
+        return redirect(route('admin.hotel.show',$hotel->id));
         // return redirect(route('admin.hotel.update',$user->id));
     }
 

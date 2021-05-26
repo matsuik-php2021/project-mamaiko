@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @section('content')
 <h2>ホテルの詳細</h2>
+<p>
+    <a href="{{route('admin.hotel.edit',$hotel->id)}}" class="btn btn-secondary">ホテル情報更新</a>
+</p>
     <dl>
         <dt>ホテル名</dt>
         <dd>{{ $hotel->name }}</dd>
@@ -33,12 +36,16 @@
                         <td>　{{$plan->price}}</td>
                     </tr>
                     <tr>
-                        <td>　　アクセス</td>
+                        <td>　　部屋数</td>
                         <td>　{{$plan->room_count}}</td>
+                    </tr>
+                    <tr>
+                        <td>　　宿泊可能人数</td>
+                        <td>　{{$plan->people}}</td>
                     </tr>
                 </table>
             </p>
-            <a href="{{route('admin.hotel.edit',$hotel->id)}}" class="btn btn-secondary" id = "right">変更</a>
+            <a href="{{route('admin.plan.edit',$plan->id)}}" class="btn btn-secondary" id = "right">変更</a>
         </div>
     </div>
     @endforeach
