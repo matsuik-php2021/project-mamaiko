@@ -1,6 +1,8 @@
 <?php
 
 namespace App;
+use DateTime;
+use Validator;
 
 use Illuminate\Database\Eloquent\Model;
 
