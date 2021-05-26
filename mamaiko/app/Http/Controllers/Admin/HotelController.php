@@ -10,7 +10,7 @@ class HotelController extends Controller
 {
     public function index()
     {
-        $hotels = Hotel::query()->paginate(5);
+        $hotels = Hotel::query()->paginate(15);
         return view('admin.hotel.index',['hotels'=>$hotels]);
     }
 
