@@ -10,6 +10,7 @@ body{
     font-size: 1rem;
     font-family: serif;
 }
+
 .haikei {
     padding: 30px;
     min-width: 500px;
@@ -81,10 +82,11 @@ table.table td{
 dt{
     font-weight: bold;
     margin-bottom: 5px;
-    font-size: .9rem;
+    font-size: 1.1em;
 }
 dd{
     margin-bottom: 15px;
+    font-size: .9em;
 }
 
 ul.pagination{
@@ -121,3 +123,12 @@ a:link {
     margin-left:20px;
     margin-right:20px;
     }
+
+/* admin.hotel.show.blade.phpで使用しています */
+#left{
+    float: left;
+    padding-left: 3rem;
+}
+#right{
+    float: right;
+}

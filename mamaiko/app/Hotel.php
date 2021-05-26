@@ -27,7 +27,8 @@ class Hotel extends Model
     }
 
     public function category(){
-        return $this->belongsTo(Category::class);
+        $foreign = $this->belongsTo(Category::class);
+        return $foreign->get()[0]->name;
     }
 
     public function rate_avg(){

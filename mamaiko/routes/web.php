@@ -60,7 +60,8 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::post('/usersList/info/update','UserController@update')->name('user.update');
         // ホテル管理
         Route::get('hotelsList', 'HotelController@index')->name('hotel.index');
-        Route::get('/hotelsList/{id}/info','HotelController@edit')->name('hotel.edit');
+        Route::get('/hotelsList/{id}/info','HotelController@show')->name('hotel.show');
+        Route::get('/hotelsList/{id}/edit','HotelController@edit')->name('hotel.edit');
         Route::post('/hotelsList/info/update','HotelController@update')->name('hotel.update');
         Route::get('/hotelsList/create','HotelController@create')->name('hotel.create');
         Route::post('/hotelsList/store','HotelController@store')->name('hotel.store');

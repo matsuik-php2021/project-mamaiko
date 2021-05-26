@@ -14,6 +14,13 @@ class HotelController extends Controller
         return view('admin.hotel.index',['hotels'=>$hotels]);
     }
 
+    public function show($id)
+    {
+        $hotel = Hotel::find($id);
+        $plans = $hotel->plans()->get();
+        return view('admin.hotel.show',['hotel'=>$hotel,'plans'=>$plans]);
+    }
+
     public function create()
     {
         $categories=\App\Category::all();
