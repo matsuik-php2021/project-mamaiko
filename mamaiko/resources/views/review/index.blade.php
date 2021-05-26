@@ -3,10 +3,14 @@
 <h2>レビュー</h2>
 <table border="1">
     <tr>
-        <th>ホテル名</th>
-        <th>プラン名</th>
+        <th>評価</th>
+        <th>レビュー</th>
     </tr>
-    <tr>
-    </tr>
+    @foreach($reviews as $review)
+        <tr>
+            <td>{{$review->rate}}</td>
+            <td>{{$review->review}}</td>
+        </tr>
+    @endforeach
 </table>
 @endsection

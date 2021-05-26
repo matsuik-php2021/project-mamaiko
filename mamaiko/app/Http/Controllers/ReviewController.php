@@ -9,8 +9,8 @@ use Illuminate\Http\Request;
 class ReviewController extends Controller
 {
     public function index($id) {
-        $review = Review::query()->where("hotel_id","=",$id);
-        return view('review.index',["review"=>$review]);
+        $reviews = Review::query()->where("hotel_id","=",$id)->get();
+        return view('review.index',["reviews"=>$reviews]);
 
     }
     public function review(Request $request) {
