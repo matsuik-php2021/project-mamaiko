@@ -71,6 +71,10 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::post('/plans/info/update','PlanController@update')->name('plan.update');
         Route::get('/plans/of{id}/create','PlanController@create')->name('plan.create');
         Route::post('/plans/store','PlanController@store')->name('plan.store');
+        //予約管理
+        Route::get('reservations', 'ReservationController@index')->name('reservation.index');
+        Route::get('/reservations/{id}/edit','ReservationController@edit')->name('reservation.edit');
+        Route::post('/reservations/info/update','ReservationController@update')->name('reservation.update');
     });
 
 });

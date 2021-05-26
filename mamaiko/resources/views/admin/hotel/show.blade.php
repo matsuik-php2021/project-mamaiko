@@ -52,5 +52,5 @@
         </div>
     </div>
 @endforeach
-
+<p><a href="{{route('admin.home.index')}}" class="btn btn-info">戻る</a></p>
 @endsection
