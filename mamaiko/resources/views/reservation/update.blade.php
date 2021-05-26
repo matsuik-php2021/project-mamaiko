@@ -4,9 +4,6 @@
 @include('commons/flash')
 <h3>ご予約ホテル名：{{$reservation->hotel->name}}</h3>
 <p>プラン名：{{$reservation->plan->name}}</p>
-<p>部屋数：{{$reservation->room_count}}</p>
-<p>チェックイン日時：{{$reservation->checkin_date}}</p>
-<p>チェックアウト日時：{{$reservation->checkout_date}}</p>
 <form action="{{route('reservation.update')}}" method="post">
     @csrf
     <p>
@@ -22,9 +19,6 @@
         <input type="date" name="checkout_date" value="{{$reservation->checkout_date}}"></label>
     </p>
     <input type="hidden" name="id" value="{{$reservation->id}}">
-    <!-- <input type="hidden" name="hotel_id" value="{{$reservation->hotel_id}}">
-    <input type="hidden" name="plan_id" value="{{$reservation->plan_id}}">
-    <input type="hidden" name="user_id" value="{{$reservation->user_id}}"> -->
     <p>
         <button type="submit">変更確定</button>
     </p>

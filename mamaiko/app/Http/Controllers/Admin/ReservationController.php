@@ -10,7 +10,7 @@ class ReservationController extends Controller
 {
     public function index()
     {
-        $reservations = Reservation::query()->where("checkin_date","<",date("Y-m-d"))->get();
+        $reservations = Reservation::query()->where("checkin_date",">=",date("Y-m-d"))->get();
         return view('admin.reservation.index',['reservations'=>$reservations]);
     }
 
@@ -29,13 +29,13 @@ class ReservationController extends Controller
 
     public function update(Request $request)
     {
-        $hotel = Hotel::where('id','=',$request->id)->get()[0];
-        if($hotel==null){
+        $reservation = Reservation::where('id','=',$request->id)->get()[0];
+        if($reservation==null){
             dd("ERROR : ユーザーが取得できませんでした。");
         }
-        $hotel->update($request->all());
-        $hotel->save();
-        return redirect(route('admin.hotel.show',$hotel->id));
+        $reservation->update($request->all());
+        $reservation->save();
+        return redirect(route('admin.reservation.index'));
         // return redirect(route('admin.hotel.update',$user->id));
     }
 
