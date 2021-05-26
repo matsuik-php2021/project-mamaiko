@@ -54,6 +54,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
 
         // TOPページ
         Route::resource('home', 'HomeController', ['only' => 'index']);
+        Route::redirect('/','home');
         // 会員管理
         Route::get('usersList', 'UserController@index')->name('user.index');
         Route::get('/usersList/{id}/info','UserController@edit')->name('user.edit');
