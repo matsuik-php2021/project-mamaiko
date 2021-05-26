@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-<h1>管理者メニュー</h1>
+<h2>管理者メニュー</h2>
 <p>
     <a href="{{route('admin.reservation.index')}}" class="btn btn-secondary">予約管理</a>
 </p>

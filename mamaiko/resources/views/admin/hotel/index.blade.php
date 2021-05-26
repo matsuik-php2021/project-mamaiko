@@ -6,7 +6,7 @@
 </p>
 @foreach ($hotels as $hotel)
     <div class="card">
-        <!-- <img class="card-img-top" src="/images/pathToYourImage.png" alt="Card image cap"> -->
+        <img class="card-img-top" src="{{ asset('storage/'.$hotel->file_name) }}" alt="Card image cap">
         <div class="card-body">
             <h4 class="card-title">{{$hotel->name}}</h4>
             <p class="card-text">

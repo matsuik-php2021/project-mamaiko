@@ -2,9 +2,7 @@
 @section('content')
 <h2>ホテルの詳細</h2>
     <dl>
-        @foreach($posts as $post)
-        <img src="{{ asset('storage/' . $post->image) }}" width="85%" height="85%">
-        @endforeach
+        <img src="{{ asset('storage/'.$hotel->file_name) }}" width="85%" height="85%">
         
         <dt>ホテル名</dt>
         <dd>{{ $hotel->name }}</dd>

@@ -1,7 +1,11 @@
 @extends('layouts.admin')
 @section('content')
-<h1>ホテル情報更新(管理者ページ)</h1>
-<form action="{{route('admin.hotel.update')}}" method="post">
+<h2>ホテル情報更新(管理者ページ)</h2>
+<form 
+	method="post"
+	action="{{ route('admin.hotel.update') }}"
+	enctype="multipart/form-data"
+>
     @csrf
     <p>
         <label>名前<br>
@@ -38,7 +42,11 @@
         <label>チェックアウト時間<br>
         <input type="time" name="checkout_time" value="{{$hotel->checkout_time}}"></label>
     </p>
+    <p>
+        画像(更新する場合に選択してください)<br>
+        <input type="file" name="image" accept="image/png, image/jpeg">
         <input type="hidden" name="id" value="{{$hotel->id}}">
+    </p>
     <p>
         <button type="submit">情報を更新</button>
     </p>

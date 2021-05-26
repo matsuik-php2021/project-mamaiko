@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-<h1>ホテル新規登録(管理者ページ)</h1>
+<h2>ホテル新規登録(管理者ページ)</h2>
 <form action="{{route('admin.hotel.store')}}" method="post">
     @csrf
     <p>
