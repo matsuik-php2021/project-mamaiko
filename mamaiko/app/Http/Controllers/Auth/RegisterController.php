@@ -89,7 +89,7 @@ class RegisterController extends Controller
             'email' => 'required|email|unique:users',
             'password' => 'required|confirmed|min:6',
             'address' => 'required',
-            'tel' => 'required |  regex:/^[a-zA-Z0-9]+$/ | digits_between:8,11|unique:users',
+            'tel' => 'required |  regex:/^[0-9]+$/ | digits_between:8,11|unique:users',
             'birthday' => 'required|date|before:'.$nowdatetime,
         ]);
         return view('auth/confirm', ['user' => $request]);
