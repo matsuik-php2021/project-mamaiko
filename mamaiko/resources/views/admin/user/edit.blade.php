@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('content')
 <h1>会員情報更新(管理者ページ)</h1>
 <form action="{{route('admin.user.update')}}" method="post">

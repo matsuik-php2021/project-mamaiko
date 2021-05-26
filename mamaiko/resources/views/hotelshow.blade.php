@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('content')
-<h1>ホテルの詳細</h1>
+<h2>ホテルの詳細</h2>
     <dl>
     <img src="/images/hotel{{$hotel->id}}.jpg" width="85%" height="85%">
         <dt>ホテル名</dt>
         <dd>{{ $hotel->name }}</dd>
         <dt>カテゴリ</dt>
-        <dd>{{ $hotel->category()->get()[0]->name }}</dd>
+        <dd>{{ $hotel->category() }}</dd>
         <dt>住所</dt>
         <dd>{{ $hotel->address }}</dd>
         <dt>アクセス</dt>

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('content')
 <h2>管理者登録</h2>
 <form action="{{route('admin.register')}}" method="post">

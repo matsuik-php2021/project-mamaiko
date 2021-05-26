@@ -14,6 +14,13 @@ class HotelController extends Controller
         return view('admin.hotel.index',['hotels'=>$hotels]);
     }
 
+    public function show($id)
+    {
+        $hotel = Hotel::find($id);
+        $plans = $hotel->plans()->get();
+        return view('admin.hotel.show',['hotel'=>$hotel,'plans'=>$plans]);
+    }
+
     public function create()
     {
         $categories=\App\Category::all();
@@ -31,7 +38,7 @@ class HotelController extends Controller
         $hotel->checkin_time = $request->checkin_time;
         $hotel->checkout_time = $request->checkout_time;
         $hotel->save();
-        return redirect(route('admin.hotel.index'));
+        return redirect(route('admin.hotel.show',$hotel->id));
         // return redirect(route('admin.hotel.update',$user->id));
     }
 
@@ -50,7 +57,7 @@ class HotelController extends Controller
         }
         $hotel->update($request->all());
         $hotel->save();
-        return redirect(route('admin.hotel.index'));
+        return redirect(route('admin.hotel.show',$hotel->id));
         // return redirect(route('admin.hotel.update',$user->id));
     }
 
