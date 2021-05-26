@@ -39,4 +39,10 @@ class ReservationController extends Controller
         // return redirect(route('admin.hotel.update',$user->id));
     }
 
+    public function destroy($id)
+    {
+        $reservation = Reservation::where('id','=', $id)->get()[0];
+        $reservation->delete();
+        return redirect(route('admin.reservation.index'));
+    }
 }

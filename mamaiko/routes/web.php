@@ -78,6 +78,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::get('reservations', 'ReservationController@index')->name('reservation.index');
         Route::get('/reservations/{id}/edit','ReservationController@edit')->name('reservation.edit');
         Route::post('/reservations/info/update','ReservationController@update')->name('reservation.update');
+        Route::get('/reservation/{id}/destroy','ReservationController@destroy')->name('reservation.destroy');
     });
 
 });

@@ -21,7 +21,7 @@
     </p>
     <input type="hidden" name="id" value="{{$reservation->id}}">
     <p>
-        <button type="submit">変更確定</button>
+        <button type="submit">変更する</button>
     </p>
 </form>
 <!-- <p>

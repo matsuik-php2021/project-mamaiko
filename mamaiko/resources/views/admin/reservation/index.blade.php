@@ -11,6 +11,7 @@
       <th>チェックアウト日</th>
       <th>部屋数</th>
       <th></th>
+      <th></th>
     </tr>
         @foreach ($reservations as $reservation)
         <tr>
@@ -21,7 +22,12 @@
             <td>{{$reservation->checkin_date}}</td>
             <td>{{$reservation->checkout_date}}</td>
             <td>{{$reservation->room_count}}</td>
-            <td><a href="{{route('admin.reservation.edit',$reservation->id)}}" class="btn btn-secondary">変更</a></td>
+            <td>
+                <a href="{{route('admin.reservation.edit',$reservation->id)}}" class="btn btn-secondary">変更</a>
+            </td>
+            <td>
+                <a href = "{{ route('admin.reservation.destroy', $reservation->id) }}" class="btn btn-secondary">予約キャンセル</a>
+            </td>
         </tr>
         @endforeach
   </table>
