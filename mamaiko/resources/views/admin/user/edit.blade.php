@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 @section('content')
-<h1>会員情報更新(管理者ページ)</h1>
+<h2>会員情報更新(管理者ページ)</h2>
+@include('commons/flash')
 <form action="{{route('admin.user.update')}}" method="post">
     @csrf
     <p>
