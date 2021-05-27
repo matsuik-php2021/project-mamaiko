@@ -45,7 +45,7 @@
                     </tr>
                 </table>
             </p>
-            <a href="{{route('reservation.create', $plan->id)}}" class="btn btn-secondary" id = "right">変更</a>
+            <a href="{{route('reservation.create', $plan->id)}}" class="btn btn-secondary" id = "right">予約する</a>
         </div>
     </div>
 @endforeach
