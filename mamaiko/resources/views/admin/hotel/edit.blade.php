@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 <h2>ホテル情報更新(管理者ページ)</h2>
+@include('commons/flash')
 <form 
 	method="post"
 	action="{{ route('admin.hotel.update') }}"
@@ -24,7 +25,7 @@
     </p>
     <p>
         <label>説明<br>
-        <textarea name="address" cols="30" rows="10">{{$hotel->description}}</textarea>
+        <textarea name="description" cols="30" rows="10">{{$hotel->description}}</textarea>
     </p>
     <p>
         <label>住所<br>
@@ -32,7 +33,7 @@
     </p>
     <p>
         <label>アクセス<br>
-        <input type="text" name="tel" value="{{$hotel->access}}"></label>
+        <input type="text" name="access" value="{{$hotel->access}}"></label>
     </p>
     <p>
         <label>チェックイン時間<br>

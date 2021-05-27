@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 <h2>ホテル新規登録(管理者ページ)</h2>
+@include('commons/flash')
 <form action="{{route('admin.hotel.store')}}" method="post">
     @csrf
     <p>
@@ -37,6 +38,10 @@
     <p>
         <label>チェックアウト時間<br>
         <input type="time" name="checkout_time" value="{{old('checkout_time')}}"></label>
+    </p>    
+    <p>
+        画像(登録する場合は選択してください)<br>
+        <input type="file" name="image" accept="image/png, image/jpeg">
     </p>
     <p>
         <button type="submit">ホテル登録</button>

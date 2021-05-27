@@ -26,6 +26,15 @@ class UserController extends Controller
         if($user==null){
             dd("ERROR : ユーザーが取得できませんでした。");
         }
+        $today = date("Y-m-d");
+        $this->validate($request, [
+            'name' => 'required|string',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|confirmed|min:6',
+            'address' => 'required',
+            'tel' => 'required |  regex:/^[0-9]+$/ | digits_between:8,11|unique:users',
+            'birthday' => 'required|date|before:'.$today,
+        ]);
         $user->update($request->all());
         $user->save();
         return redirect(route('admin.user.index'));

@@ -1,14 +1,7 @@
 @extends('layouts.admin')
 @section('content')
-
 <h2>管理者ログイン</h2>
-@if ($errors->count())
-    <ul class="alert">
-        @foreach($errors->all() as $error)
-            <li>{{$error}}</li>
-        @endforeach
-    </ul>
-@endif
+@include('commons/flash')
 <form action="{{route('admin.login')}}" method="post">
     @csrf
     <p>

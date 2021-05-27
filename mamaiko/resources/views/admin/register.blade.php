@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 <h2>管理者登録</h2>
+@include('commons/flash')
 <form action="{{route('admin.register')}}" method="post">
     @csrf
     <p>

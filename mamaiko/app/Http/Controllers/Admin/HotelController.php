@@ -30,6 +30,15 @@ class HotelController extends Controller
     public function store(Request $request)
     {
         $hotel = new Hotel;
+        $this->validate($request, [
+            'name' => 'required|string',
+            'category_id' => 'required|between:1,6',
+            'address' => 'required',
+            'access' => 'required',
+            'description' => 'required',
+            'checkin_time' => 'required',
+            'checkout_time' => 'required',
+        ]);
         $hotel->name = $request->name;
         $hotel->category_id = $request->category_id;
         $hotel->address = $request->address;
@@ -37,6 +46,12 @@ class HotelController extends Controller
         $hotel->description = $request->description;
         $hotel->checkin_time = $request->checkin_time;
         $hotel->checkout_time = $request->checkout_time;
+        $path = '';
+        $image = $request->file('image'); 
+        if( isset($image) === true ){
+            $path = $image->store('photos', 'public'); //storage/app/public/photosディレクトリに保存
+            $hotel->file_name = $path;
+        }
         $hotel->save();
         return redirect(route('admin.hotel.show',$hotel->id));
         // return redirect(route('admin.hotel.update',$user->id));
@@ -55,6 +70,15 @@ class HotelController extends Controller
         if($hotel==null){
             dd("ERROR : ユーザーが取得できませんでした。");
         }
+        $this->validate($request, [
+            'name' => 'required|string',
+            'category_id' => 'required|between:1,6',
+            'address' => 'required',
+            'access' => 'required',
+            'description' => 'required',
+            'checkin_time' => 'required',
+            'checkout_time' => 'required',
+        ]);
         $hotel->update($request->all());
         $path = '';
         $image = $request->file('image'); 
