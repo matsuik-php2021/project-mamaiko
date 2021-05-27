@@ -37,14 +37,14 @@ class ReservationController extends Controller
     {
         $plan = \App\Plan::find($request->plan_id);
         $today = date("Y-m-d");
-        if ($plan->canReserveIn($request->checkin_date,$request->checkout_date)){
-            return redirect(route('reservation.create',$request->plan_id))->with('message', '予約が埋まっています。');
-        }
         $this->validate($request, [
             'room_count' => 'required|integer',
             'checkin_date' => 'required|date|after:'.$today,
             'checkout_date' => 'required|date|after:'.$request->checkin_date,
         ]);
+        if (!$plan->can_reserve_in($request->room_count,$request->checkin_date,$request->checkout_date)){
+            return redirect(route('reservation.create',$request->plan_id))->with('message', "error:予約が埋まっています。");
+        }
         return view('reservation.confirm',['plan'=>$plan,'request'=>$request]);
     }
 

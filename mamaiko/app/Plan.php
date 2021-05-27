@@ -18,15 +18,26 @@ class Plan extends Model
     {
         return $this->hasMany(Reservation::class);
     }
-    public function can_reserve_count()
+    
+    public function can_reserve_count($date)
     {
         $count = $this->room_count;
         foreach ($this->reservations as $reservation){
-            if($reservation->checkin_date <= date("Y-m-d") and
-            $reservation->checkout_date > date("Y-m-d")){
+            if($reservation->checkin_date <= $date and
+            $reservation->checkout_date > $date){
                 $count -= $reservation->room_count;
             }
         }
         return $count;
+    }
+
+    public function can_reserve_in($count,$start,$end)
+    {
+        for ($i = $start; $i < $end; $i = date('Y-m-d', strtotime($i . '+1 day'))) {
+            if($this->can_reserve_count($i)<$count){
+                return false;
+            }
+        }
+        return true;
     }
 }
