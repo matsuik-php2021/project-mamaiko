@@ -20,11 +20,35 @@
         <dd>{{ $hotel->checkout_time }}</dd>
     </dl>
     
-    <dt>ご利用可能プラン</dt>
-    @foreach($plans as $plan)
-    <dd><a href = "{{ route('reservation.create', $plan->id) }}">{{ $plan->name }}</a> : {{ $plan->people }}人部屋、{{ $plan->price }}円</dd>
-
-    @endforeach
+    <h5>ご利用可能プラン</h5>
+@foreach($plans as $plan)
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">{{$plan->name}}</h4>
+            <p class="card-text">
+                <table id = "left">
+                    <tr>
+                        <td>　　プラン内容</td>
+                        <td>　{{$plan->description}}</td>
+                    </tr>
+                    <tr>
+                        <td>　　価格</td>
+                        <td>　{{$plan->price}}</td>
+                    </tr>
+                    <tr>
+                        <td>　　部屋数</td>
+                        <td>　{{$plan->room_count}}</td>
+                    </tr>
+                    <tr>
+                        <td>　　宿泊可能人数</td>
+                        <td>　{{$plan->people}}</td>
+                    </tr>
+                </table>
+            </p>
+            <a href="{{route('reservation.create', $plan->id)}}" class="btn btn-secondary" id = "right">変更</a>
+        </div>
+    </div>
+@endforeach
 
     @if(\Auth::user()->isLike($hotel->id))
         <form action="{{route('favorites.destroy') }}" method="post">
