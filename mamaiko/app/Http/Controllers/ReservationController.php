@@ -36,10 +36,10 @@ class ReservationController extends Controller
     public function confirm(Request $request)
     {
         $plan = \App\Plan::find($request->plan_id);
-        $nowdatetime = date("Y-m-d");
+        $today = date("Y-m-d");
         $this->validate($request, [
             'room_count' => 'required|integer',
-            'checkin_date' => 'required|date|after:'.$nowdatetime,
+            'checkin_date' => 'required|date|after:'.$today,
             'checkout_date' => 'required|date|after:'.$request->checkin_date,
         ]);
         return view('reservation.confirm',['plan'=>$plan,'request'=>$request]);
@@ -120,8 +120,8 @@ class ReservationController extends Controller
         $nowdatetime = date("Y-m-d");
         $this->validate($request, [
             'room_count' => 'required|integer',
-            'checkin_date' => 'required|date|after:'.$nowdatetime,
-            'checkout_date' => 'required|date|after:'.$request->checkin_date,
+            // 'checkin_date' => 'required|date|after:'.$nowdatetime,
+            // 'checkout_date' => 'required|date|after:'.$request->checkin_date,
         ]);
         $reservation = Reservation::where('id','=',$request->id)->get()[0];
         $reservation->update($request->all());

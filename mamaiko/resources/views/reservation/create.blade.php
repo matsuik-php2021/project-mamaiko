@@ -6,11 +6,16 @@
 
 <p>{{$plan->description}}</p>
 <p>{{$plan->price}}円</p>
+最大{{$plan->can_reserve_count()}}部屋
 <form action="{{route('reservation.confirm')}}" method="post">
     @csrf
     <p>
         <label>部屋数<br>
-        <input type="num" name="room_count" value="{{old('room_count')}}"></label>
+        <select name="room_count">
+            @for ($i=1 ;$i<=$plan->can_reserve_count();$i++)
+                <option value="{{$i}}">{{$i}}</option>
+            @endfor
+        </select>
     </p>
     <p>
         <label>チェックイン日<br>
