@@ -16,8 +16,8 @@ class HotelController extends Controller
     public function index(Request $request)
     {
         // $hotel_name=$request->hotel_name;
-        $price1=$request->input('price1');
-        $price2=$request->input('price2');
+        $price_min=$request->input('price_min');
+        $price_max=$request->input('price_max');
         $people=$request->input('people');
 
         $query=Plan::query(); 
@@ -26,14 +26,20 @@ class HotelController extends Controller
              $query->where('name', 'LIKE', "%{$hotel_name}%" );
          }
         // ホテルテーブルからホテル名を持ってきたい
-        if (!empty($price1)){
-            $query->where('price', '>=', $price1 );
+        if (!empty($price_min)){
+            //validate
+            $this->validate($request, ['price_min' => 'integer|min:1']);
+            $query->where('price', '>=', $price_min );
         }
-        if (!empty($price2)){
-            $query->where('price', '<=', $price2);
+        if (!empty($price_max)){
+            //validate
+            $this->validate($request, ['price_max' => 'integer|min:1']);
+            $query->where('price', '<=', $price_max);
         }
         if (!empty($people)){
-            $query->where('people', '=', $people );
+            //validate
+            $this->validate($request, ['people' => 'integer|min:1']);
+            $query->where('people', '>=', $people );
         }
         $searches=$query->orderBy('price', 'asc')->paginate(5);
         return view('search_results', ['searches'=> $searches ]);

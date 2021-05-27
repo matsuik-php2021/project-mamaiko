@@ -70,13 +70,14 @@ table.table{
     border-collapse: collapse;
 }
 table.table thead{
-    background: #f1f1f1;
+    background: #e2e2e2;
     font-weight: bold;
 }
 table.table th,
 table.table td{
     padding: 10px 15px;
-    border-bottom: 1px solid #ddd;
+    border-top: 1px solid rgb(134, 134, 134);
+    border-bottom: 1px solid rgb(134, 134, 134);
 }
 
 dt{
