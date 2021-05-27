@@ -42,8 +42,7 @@ Route::group(['middleware'=>['auth']],function(){
     Route::post('/plan/reservation/update', 'ReservationController@update')->name('reservation.update');
     Route::get('/reservation/{id}/destroy','ReservationController@destroy')->name('reservation.destroy');
     Route::get('/hotels/{id}/review', 'ReviewController@index')->name('review.index');
-    Route::get('/review/{id}/post', 'ReviewController@review')->name('review.post');
-    Route::post('/review/form','ReviewController@show')->name('review.form');
+    Route::post('/review/form','ReviewController@form')->name('review.form');
     Route::post('/review/store','ReviewController@store')->name('review.store');
 
 });
