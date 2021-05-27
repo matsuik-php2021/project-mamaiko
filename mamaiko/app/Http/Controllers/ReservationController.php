@@ -118,19 +118,16 @@ class ReservationController extends Controller
      */
     public function update(Request $request)
     {
-        $nowdatetime = date("Y-m-d");
+        $today = date("Y-m-d");
         $this->validate($request, [
-<<<<<<< HEAD
             'room_count' => 'required|integer|min:1|max:5',
-            'checkin_date' => 'required|date|after:'.$nowdatetime,
+            'checkin_date' => 'required|date|after:'.$today,
             'checkout_date' => 'required|date|after:'.$request->checkin_date,
-=======
-            'room_count' => 'required|integer',
-            // 'checkin_date' => 'required|date|after:'.$nowdatetime,
-            // 'checkout_date' => 'required|date|after:'.$request->checkin_date,
->>>>>>> origin/room_validate02
         ]);
         $reservation = Reservation::where('id','=',$request->id)->get()[0];
+        if (!$reservation->plan->can_reserve_in($request->room_count,$request->checkin_date,$request->checkout_date)){
+            return redirect(route('reservation.edit',$request->id))->with('message', "error:予約が埋まっています。");
+        }
         $reservation->update($request->all());
         $reservation->save();
         return redirect(route('reservation.plan'));

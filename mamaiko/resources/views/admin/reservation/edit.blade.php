@@ -9,7 +9,11 @@
     @csrf
     <p>
         <label>部屋数<br>
-        <input type="num" name="room_count" value="{{$reservation->room_count}}"></label>
+        <select name="room_count">
+            @for ($i=1 ;$i<=$reservation->plan->room_count;$i++)
+                <option value="{{$i}}">{{$i}}</option>
+            @endfor
+        </select>
     </p>
     <p>
         <label>チェックイン日<br>

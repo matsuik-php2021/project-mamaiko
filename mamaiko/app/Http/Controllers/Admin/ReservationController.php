@@ -33,6 +33,15 @@ class ReservationController extends Controller
         if($reservation==null){
             dd("ERROR : ユーザーが取得できませんでした。");
         }
+        $today = date("Y-m-d");
+        $this->validate($request, [
+            'room_count' => 'required|integer|min:1|max:5',
+            'checkin_date' => 'required|date|after:'.$today,
+            'checkout_date' => 'required|date|after:'.$request->checkin_date,
+        ]);
+        if (!$request->plan->can_reserve_in($request->room_count,$request->checkin_date,$request->checkout_date)){
+            return redirect(route('reservation.create',$request->plan_id))->with('message', "error:予約が埋まっています。");
+        }
         $reservation->update($request->all());
         $reservation->save();
         return redirect(route('admin.reservation.index'));

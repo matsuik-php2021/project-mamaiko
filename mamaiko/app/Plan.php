@@ -33,6 +33,7 @@ class Plan extends Model
 
     public function can_reserve_in($count,$start,$end)
     {
+        //自身の予約とも重なっていると判定してしまう。
         for ($i = $start; $i < $end; $i = date('Y-m-d', strtotime($i . '+1 day'))) {
             if($this->can_reserve_count($i)<$count){
                 return false;
