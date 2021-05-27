@@ -2,7 +2,7 @@
 @section('content')
 <h2>検索結果</h2>
 @if(count($searches) > 0)
-<table border="1">
+<table class="table">
     <tr>
         <th>ホテル名</th>
         <th>プラン名</th>
