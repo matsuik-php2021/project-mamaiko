@@ -38,7 +38,7 @@ class ReservationController extends Controller
         $plan = \App\Plan::find($request->plan_id);
         $nowdatetime = date("Y-m-d");
         $this->validate($request, [
-            'room_count' => 'required|integer',
+            'room_count' => 'required|integer|min:1|max:5',
             'checkin_date' => 'required|date|after:'.$nowdatetime,
             'checkout_date' => 'required|date|after:'.$request->checkin_date,
         ]);
@@ -119,7 +119,7 @@ class ReservationController extends Controller
     {
         $nowdatetime = date("Y-m-d");
         $this->validate($request, [
-            'room_count' => 'required|integer',
+            'room_count' => 'required|integer|min:1|max:5',
             'checkin_date' => 'required|date|after:'.$nowdatetime,
             'checkout_date' => 'required|date|after:'.$request->checkin_date,
         ]);
