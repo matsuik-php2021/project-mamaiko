@@ -94,6 +94,15 @@
     <main>
         <div class="container">
             <div class="haikei">
+            @if (session('message'))
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="alert alert-warning">
+                            {{ session('message') }}
+                        </div>
+                    </div>
+                </div>
+            @endif
             @yield('content')
             </div>
         </div>
