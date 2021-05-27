@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 @section('content')
-<h1>プラン作成(管理者ページ)</h1>
+<h2>プラン作成(管理者ページ)</h2>
+@include('commons/flash')
 <form action="{{route('admin.plan.store')}}" method="post">
     @csrf
     <p>
@@ -23,7 +24,7 @@
         <label>宿泊可能人数<br>
         <input type="number" name="people" value="{{old('people')}}"></label>
     </p>
-        <input type="hidden" name="hotel_id" value="{{$hotel_id}}">
+        <input type="hidden" name="hotel_id" value="{{old('people')}}">
     <p>
         <button type="submit">プランを作成</button>
     </p>
