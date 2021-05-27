@@ -25,7 +25,7 @@
     <input type="hidden" name="checkout_date" value="{{ $request->checkout_date }}">
     <input type="hidden" name="reservation_date" value="{{ date('Y-m-d') }}">
     <input type="hidden" name="room_count" value="{{ $request->room_count }}">
-    <button type="submit">この内容で登録する</button>
+    <button type="submit">この内容で予約する</button>
 
 </form>
 <form action="javascript:history.back()" method="get">
