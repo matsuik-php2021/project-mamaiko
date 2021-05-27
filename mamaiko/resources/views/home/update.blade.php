@@ -37,4 +37,5 @@
         <button type="submit">確認画面へ</button>
     </p>
 </form>
+<a href="javascript:history.back()">[戻る]</a>
 @endsection

@@ -40,4 +40,5 @@
             <button type="submit">お気に入り登録</button>
         </form>
     @endif
+    <a href="javascript:history.back()">戻る</a>    
 @endsection
