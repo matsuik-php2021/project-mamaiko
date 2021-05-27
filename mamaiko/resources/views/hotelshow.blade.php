@@ -38,4 +38,8 @@
             <button type="submit">お気に入り登録</button>
         </form>
     @endif
+    <form action="{{route('review.index', $hotel->id) }}" method="get">
+        @csrf
+        <button type="submit"> レビューを見る</button>
+    </form>
 @endsection

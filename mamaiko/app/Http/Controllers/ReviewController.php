@@ -10,9 +10,26 @@ class ReviewController extends Controller
 {
     public function index($id) {
         $reviews = Review::query()->where("hotel_id","=",$id)->get();
-        return view('review.index',["reviews"=>$reviews]);
+        return view('review.index',["reviews"=>$reviews,"hotel_id"=>$id]);
 
     }
+    public function show(Request $request){
+        return view('review.post', [
+            "hotel_id"=>$request->hotel_id
+        ]);
+    }
+    public function store(Request $request)
+    {
+        $review = new \App\Review;
+
+        $review->rate = $request->rate;
+        $review->review = $request->review;
+        $review->user_id = \Auth::id();
+        $review->hotel_id = $request->hotel_id;
+        $review->save();
+        return view('review.store');
+    }
+
     public function review(Request $request) {
 
         $result = false;

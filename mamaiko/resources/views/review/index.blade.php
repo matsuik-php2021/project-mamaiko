@@ -13,4 +13,12 @@
         </tr>
     @endforeach
 </table>
+<form action="{{route('review.form') }}" method="post">
+    @csrf
+    <input type="hidden" name="hotel_id" value="{{$hotel_id}}">
+    <button type="submit"> レビューを投稿する</button>
+</form>
+<form action="{{route('hotelshow', $hotel_id)}}" method="get">
+    <button type="submit">戻る</button>
+</form>
 @endsection
