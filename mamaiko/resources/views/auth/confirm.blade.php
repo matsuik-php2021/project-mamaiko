@@ -32,5 +32,5 @@
     <button type="submit">この内容で登録する</button>
 </p>
 </form>
-<a href = "{{route('register')}}">戻る</a>
+<a href="javascript:history.back()">[戻る]</a>
 @endsection

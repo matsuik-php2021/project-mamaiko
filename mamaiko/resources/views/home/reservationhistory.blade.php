@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <h1>宿泊履歴一覧</h1>
+@if(count($reservations) > 0)
 <table border="1">
     <tr>
         <th>ホテル名</th>
@@ -15,5 +16,8 @@
         </td>
     </tr>
     @endforeach
-</table>   
+</table>
+@else
+<p>宿泊履歴はありません。</p>
+@endif   
 @endsection

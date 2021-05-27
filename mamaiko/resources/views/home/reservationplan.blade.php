@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <h1>予約一覧</h1>
+@if(count($reservations) > 0)
 <table border="1">
     <tr>
         <th>ホテル名</th>
@@ -22,5 +23,9 @@
         </td>
     </tr>
     @endforeach
-</table>   
+</table>      
+@else
+<p>現在予約はありません。</p>
+@endif    
+ 
 @endsection

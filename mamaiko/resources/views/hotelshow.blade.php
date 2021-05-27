@@ -44,4 +44,5 @@
         @csrf
         <button type="submit"> レビューを見る</button>
     </form>
+    <a href="javascript:history.back()">戻る</a>
 @endsection

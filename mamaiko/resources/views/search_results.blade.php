@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <h2>検索結果</h2>
-@if(!empty($searches))
+@if(count($searches) > 0)
 <table border="1">
     <tr>
         <th>ホテル名</th>
@@ -22,4 +22,5 @@
 @else
     <p>検索結果に合うホテルがありませんでした。</p>
 @endif
+<a href="javascript:history.back()">[戻る]</a>
 @endsection
