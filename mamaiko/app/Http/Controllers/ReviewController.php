@@ -3,35 +3,37 @@
 namespace App\Http\Controllers;
 
 use App\Review;
+use App\Hotel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
     public function index($id) {
-        $reviews = Review::query()->where("hotel_id","=",$id)->get();
-        return view('review.index',["reviews"=>$reviews,"hotel_id"=>$id]);
-
+        $hotel = Hotel::find($id);
+        return view('review.index',["hotel"=>$hotel]);
     }
+
     public function form(Request $request){
         return view('review.post', [
             "hotel_id"=>$request->hotel_id
         ]);
     }
+
     public function store(Request $request)
     {
         $this->validate($request, [
             'rate' => 'required',
             'review' => 'required|max:500',
-            // 'user_id' => 'required',
-            // 'hotel_id' =>'required|unique:hotel_id,user_id',
         ]);
         $review = new \App\Review;
         $review->rate = $request->rate;
         $review->review = $request->review;
         $review->user_id = \Auth::id();
         $review->hotel_id = $request->hotel_id;
-        
+        if (!$review->isUnique()){
+            return redirect(route('review.index',$review->hotel_id))->with('message', "これ以上は投稿できません。");
+        }
         $review->save();
         return view('review.store');
     }

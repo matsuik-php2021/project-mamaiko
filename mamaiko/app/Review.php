@@ -21,4 +21,15 @@ class Review extends Model
     public function comments(){
         return $this->hasMany('Comment', 'id');
     }
+
+    public function isUnique()
+    {
+        $other_reviews = $this->hotel->reviews;
+        foreach($other_reviews as $review){
+            if($review->user->id == $this->user_id){
+                return false;
+            }
+        }
+        return true;
+    }
 }

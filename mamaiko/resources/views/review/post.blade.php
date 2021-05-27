@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <h2>レビュー投稿画面</h2>
+@include('commons/flash')
 <b>評価</b><br>
 <form action="{{route('review.store')}}" method="post">
     @csrf
