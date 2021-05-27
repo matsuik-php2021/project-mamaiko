@@ -29,5 +29,9 @@
         <button type="submit">変更確定</button>
     </p>
 </form>
-<p><a href = "{{ route('reservation.plan') }}">予約一覧へ戻る</a></p>
+<form action="{{ route('reservation.plan') }}" method="get">
+    @csrf
+    <button type="submit">予約一覧へ戻る</button>
+</form>
+<!-- <p><a href = "{{ route('reservation.plan') }}">予約一覧へ戻る</a></p> -->
 @endsection

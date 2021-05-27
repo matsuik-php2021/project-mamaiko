@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\review;
+use App\Review;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -21,11 +21,15 @@ class ReviewController extends Controller
     public function store(Request $request)
     {
         $review = new \App\Review;
-
         $review->rate = $request->rate;
         $review->review = $request->review;
         $review->user_id = \Auth::id();
         $review->hotel_id = $request->hotel_id;
+        // $this->validate($review, [
+        //     'rate' => 'required',
+        //     'review' => 'required|max:500',
+        //     'user_id' => 'required|unique:reviews',
+        // ]);
         $review->save();
         return view('review.store');
     }

@@ -17,11 +17,12 @@
         <label for="star5"><span class="text">悪い</span>★</label>
     </div>
 <b>内容</b><br>
-<textarea name="review" cols="50" rows="10" placeholder="500字以内で感想を記入してください（任意）" maxlength="500" value="{{old('review')}}"></textarea>
+<textarea name="review" cols="50" rows="10" placeholder="500字以内で感想を記入してください（必須）" maxlength="500" value="{{old('review')}}"></textarea>
 <input type="hidden" value="{{$hotel_id}}" name="hotel_id"><br>
 <button type="submit">この内容でレビューを投稿する</button>
 </form>
-<form action="{{route('review.index',$hotel_id)}}" method="get">
+<form action="javascript:history.back()" method="get">
+    @csrf
     <button type="submit">戻る</button>
-</form>
+    </form>
 @endsection

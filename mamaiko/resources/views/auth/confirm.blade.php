@@ -32,5 +32,8 @@
     <button type="submit">この内容で登録する</button>
 </p>
 </form>
-<a href="javascript:history.back()">[戻る]</a>
+<form action="javascript:history.back()" method="get">
+    @csrf
+    <button type="submit">戻る</button>
+</form>
 @endsection
