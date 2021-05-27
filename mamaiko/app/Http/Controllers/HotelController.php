@@ -16,6 +16,11 @@ class HotelController extends Controller
     public function index(Request $request)
     {
         // $hotel_name=$request->hotel_name;
+        // $this->validate($request, [
+        //     'price_min' => 'required|integer|min:1',
+        //     'price_max' => 'required|integer|after:'.$request->price_min,
+        //     'people' => 'required|integer|min:1',
+        // ]);
         $price_min=$request->input('price_min');
         $price_max=$request->input('price_max');
         $people=$request->input('people');
@@ -33,7 +38,7 @@ class HotelController extends Controller
         }
         if (!empty($price_max)){
             //validate
-            $this->validate($request, ['price_max' => 'integer|min:1']);
+            $this->validate($request, ['price_max' => 'integer|min:'.$request->price_min]);
             $query->where('price', '<=', $price_max);
         }
         if (!empty($people)){
