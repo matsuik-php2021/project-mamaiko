@@ -3,14 +3,17 @@
 <h2>予約画面</h2>
 @include('commons/flash')
 <h3>{{$plan->name}}</h3>
-
 <p>{{$plan->description}}</p>
 <p>{{$plan->price}}円</p>
 <form action="{{route('reservation.confirm')}}" method="post">
     @csrf
     <p>
         <label>部屋数<br>
-        <input type="num" name="room_count" value="{{old('room_count')}}"></label>
+        <select name="room_count">
+            @for ($i=1 ;$i<=$plan->room_count;$i++)
+                <option value="{{$i}}">{{$i}}</option>
+            @endfor
+        </select>
     </p>
     <p>
         <label>チェックイン日<br>

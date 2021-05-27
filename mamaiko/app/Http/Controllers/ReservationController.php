@@ -36,12 +36,15 @@ class ReservationController extends Controller
     public function confirm(Request $request)
     {
         $plan = \App\Plan::find($request->plan_id);
-        $nowdatetime = date("Y-m-d");
+        $today = date("Y-m-d");
         $this->validate($request, [
             'room_count' => 'required|integer|min:1|max:5',
-            'checkin_date' => 'required|date|after:'.$nowdatetime,
+            'checkin_date' => 'required|date|after:'.$today,
             'checkout_date' => 'required|date|after:'.$request->checkin_date,
         ]);
+        if (!$plan->can_reserve_in($request->room_count,$request->checkin_date,$request->checkout_date)){
+            return redirect(route('reservation.create',$request->plan_id))->with('message', "error:予約が埋まっています。");
+        }
         return view('reservation.confirm',['plan'=>$plan,'request'=>$request]);
     }
 
@@ -75,7 +78,6 @@ class ReservationController extends Controller
     {
         $id = Auth::id();
         $nowdatetime = date("Y-m-d");
-        // dd($nowdatetime);
         $query = Reservation::query();
         $query->where("user_id", "=", $id);
         $query->where("checkout_date", "<=", $nowdatetime);
@@ -86,7 +88,6 @@ class ReservationController extends Controller
     {
         $id = Auth::id();
         $nowdatetime = date("Y-m-d");
-        // dd($nowdatetime);
         $query = Reservation::query();
         $query->where("user_id", "=", $id);
         $query->where("checkout_date", ">", $nowdatetime);
@@ -119,9 +120,15 @@ class ReservationController extends Controller
     {
         $nowdatetime = date("Y-m-d");
         $this->validate($request, [
+<<<<<<< HEAD
             'room_count' => 'required|integer|min:1|max:5',
             'checkin_date' => 'required|date|after:'.$nowdatetime,
             'checkout_date' => 'required|date|after:'.$request->checkin_date,
+=======
+            'room_count' => 'required|integer',
+            // 'checkin_date' => 'required|date|after:'.$nowdatetime,
+            // 'checkout_date' => 'required|date|after:'.$request->checkin_date,
+>>>>>>> origin/room_validate02
         ]);
         $reservation = Reservation::where('id','=',$request->id)->get()[0];
         $reservation->update($request->all());
