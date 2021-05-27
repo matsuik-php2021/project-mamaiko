@@ -14,7 +14,7 @@ class AddImagesToHotelsTable extends Migration
     public function up()
     {
         Schema::table('hotels', function (Blueprint $table) {
-            $table->string('file_name');
+            $table->string('file_name')->nullable();
         });
     }
 
