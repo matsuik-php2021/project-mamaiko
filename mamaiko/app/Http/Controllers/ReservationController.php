@@ -43,7 +43,7 @@ class ReservationController extends Controller
             'checkout_date' => 'required|date|after:'.$request->checkin_date,
         ]);
         if (!$plan->can_reserve_in($request->room_count,$request->checkin_date,$request->checkout_date)){
-            return redirect(route('reservation.create',$request->plan_id))->with('message', "error:予約が埋まっています。");
+            return redirect(route('reservation.create',$request->plan_id))->with('message', "予約が埋まっています。");
         }
         return view('reservation.confirm',['plan'=>$plan,'request'=>$request]);
     }
@@ -126,7 +126,7 @@ class ReservationController extends Controller
         ]);
         $reservation = Reservation::where('id','=',$request->id)->get()[0];
         if (!$reservation->plan->can_reserve_in($request->room_count,$request->checkin_date,$request->checkout_date)){
-            return redirect(route('reservation.edit',$request->id))->with('message', "error:予約が埋まっています。");
+            return redirect(route('reservation.edit',$request->id))->with('message', "予約が埋まっています。");
         }
         $reservation->update($request->all());
         $reservation->save();

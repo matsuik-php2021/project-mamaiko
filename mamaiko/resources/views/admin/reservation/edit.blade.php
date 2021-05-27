@@ -11,7 +11,9 @@
         <label>部屋数<br>
         <select name="room_count">
             @for ($i=1 ;$i<=$reservation->plan->room_count;$i++)
-                <option value="{{$i}}">{{$i}}</option>
+            <option value="{{$i}}"
+                    <?= $i==$reservation->room_count ? "selected" : "" ?>
+                >{{$i}}</option>
             @endfor
         </select>
     </p>
