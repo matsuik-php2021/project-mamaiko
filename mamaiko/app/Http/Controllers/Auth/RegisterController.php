@@ -85,7 +85,7 @@ class RegisterController extends Controller
     {
         $today = date("Y-m-d");
         $this->validate($request, [
-            'name' => 'required|string',
+            'name' => 'required|string|max:50',
             'email' => 'required|email|unique:users',
             'password' => 'required|confirmed|min:6',
             'address' => 'required',

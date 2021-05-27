@@ -27,5 +27,8 @@
 @else
 <p>現在予約はありません。</p>
 @endif    
- 
+<form action="javascript:history.back()" method="get">
+    @csrf
+    <button type="submit">戻る</button>
+</form>
 @endsection

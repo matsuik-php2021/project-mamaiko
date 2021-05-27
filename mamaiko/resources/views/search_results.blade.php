@@ -22,5 +22,9 @@
 @else
     <p>検索結果に合うホテルがありませんでした。</p>
 @endif
-<a href="javascript:history.back()">[戻る]</a>
+<form action="javascript:history.back()" method="get">
+    @csrf
+    <button type="submit">戻る</button>
+</form>
+<!-- <a href="javascript:history.back()">[戻る]</a> -->
 @endsection

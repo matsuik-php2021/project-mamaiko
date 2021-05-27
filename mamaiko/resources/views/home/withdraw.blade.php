@@ -6,6 +6,6 @@
 
 
 <a href="{{route('destroy')}}" id="btn" style="display:inline">はい</a>
-<a href="{{route('mypage')}}" id="btn" style="display:inline">いいえ</a>
+<a href="{{route('toppage')}}" id="btn" style="display:inline">いいえ</a>
 
 @endsection

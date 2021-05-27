@@ -28,7 +28,7 @@ class HomeController extends Controller
         $myEmail = $request->email;
         $myTel = $request->tel;
         $this->validate($request, [
-            'name' => 'required|string',
+            'name' => 'required|string|max:50',
             'email' => 'required|email|unique:users,email,'.$myEmail.',email',
             'password' => 'required|confirmed|min:6',
             'address' => 'required',

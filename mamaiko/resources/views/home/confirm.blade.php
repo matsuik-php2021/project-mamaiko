@@ -14,7 +14,7 @@
         <dt>メールアドレス</dt>
         <dd>{{ $user->email }}</dd>
     </dl>
-<form action="{{route('home.store')}}" method="post">
+<form action="{{route('toppage')}}" method="get">
 @csrf
     <label>
     <input type="hidden" name="name" value="{{ $user->name }}"></label>
@@ -34,5 +34,9 @@
     <button type="submit">この内容で登録する</button>
 </p>
 </form>
-<a href="javascript:history.back()">[戻る]</a>
+<!-- <a href="javascript:history.back()">[戻る]</a> -->
+<form action="javascript:history.back()" method="get">
+    @csrf
+    <button type="submit">戻る</button>
+</form>
 @endsection

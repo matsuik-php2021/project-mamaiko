@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <h2>レビュー</h2>
+@if(count($reviews) > 0)
 <table border="1">
     <tr>
         <th>評価</th>
@@ -13,12 +14,16 @@
         </tr>
     @endforeach
 </table>
-<form action="{{route('review.form') }}" method="post">
+@else
+<p>投稿されたレビューはありません。</p>
+@endif
+<!-- <form action="{{route('review.form') }}" method="post">
     @csrf
     <input type="hidden" name="hotel_id" value="{{$hotel_id}}">
     <button type="submit"> レビューを投稿する</button>
-</form>
-<form action="{{route('hotelshow', $hotel_id)}}" method="get">
+</form> -->
+<form action="javascript:history.back()" method="get">
+    @csrf
     <button type="submit">戻る</button>
 </form>
 @endsection

@@ -28,5 +28,8 @@
     <button type="submit">この内容で登録する</button>
 
 </form>
-<a href = "{{route('reservation.create',$plan->id)}}">戻る</a>
+<form action="javascript:history.back()" method="get">
+    @csrf
+    <button type="submit">戻る</button>
+</form>
 @endsection
