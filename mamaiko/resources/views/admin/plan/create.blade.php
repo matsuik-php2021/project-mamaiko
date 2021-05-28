@@ -24,7 +24,7 @@
         <label>宿泊可能人数<br>
         <input type="number" name="people" value="{{old('people')}}"></label>
     </p>
-        <input type="hidden" name="hotel_id" value="{{old('people')}}">
+        <input type="hidden" name="hotel_id" value="{{$hotel_id}}">
     <p>
         <button type="submit">プランを作成</button>
     </p>
