@@ -44,7 +44,7 @@ class HotelController extends Controller
         if (!empty($people)){
             //validate
             $this->validate($request, ['people' => 'integer|min:1']);
-            $query->where('people', '>=', $people );
+            $query->where('people', '=', $people );
         }
         $searches=$query->orderBy('price', 'asc')->paginate(5);
         return view('search_results', ['searches'=> $searches ]);
