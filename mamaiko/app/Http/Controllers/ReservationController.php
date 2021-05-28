@@ -106,6 +106,9 @@ class ReservationController extends Controller
         $query = Reservation::query();
         $query->where("id", "=", $id);
         $reservation = $query->get()[0];
+        if ($reservation->user_id != Auth::id()){
+            return redirect(route('reservation.plan'));
+        }
         return view('reservation.update', ['reservation' => $reservation]);
     }
 
