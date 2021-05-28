@@ -2,7 +2,11 @@
 @section('content')
 <h2>ホテル新規登録(管理者ページ)</h2>
 @include('commons/flash')
-<form action="{{route('admin.hotel.store')}}" method="post">
+<form 
+	method="post"
+	action="{{ route('admin.hotel.store') }}"
+	enctype="multipart/form-data"
+>
     @csrf
     <p>
         <label>名前<br>

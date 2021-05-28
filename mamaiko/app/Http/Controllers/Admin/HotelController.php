@@ -50,8 +50,8 @@ class HotelController extends Controller
         $image = $request->file('image'); 
         if( isset($image) === true ){
             $path = $image->store('photos', 'public'); //storage/app/public/photosディレクトリに保存
-            $hotel->file_name = $path;
         }
+        $hotel->file_name = $path;
         $hotel->save();
         return redirect(route('admin.hotel.show',$hotel->id));
         // return redirect(route('admin.hotel.update',$user->id));
@@ -89,6 +89,13 @@ class HotelController extends Controller
         $hotel->save();
         return redirect(route('admin.hotel.show',$hotel->id));
         // return redirect(route('admin.hotel.update',$user->id));
+    }
+
+    public function destroy($id)
+    {
+        $hotel = Hotel::find($id);
+        $hotel->delete();
+        return redirect(route("admin.hotel.index"));
     }
 
 }

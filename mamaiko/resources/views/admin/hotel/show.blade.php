@@ -4,6 +4,9 @@
 <p>
     <a href="{{route('admin.hotel.edit',$hotel->id)}}" class="btn btn-secondary">ホテル情報更新</a>
 </p>
+<p>
+    <a href="{{route('admin.hotel.destroy',$hotel->id)}}" class="btn btn-danger">ホテル削除</a>
+</p>
     <dl>
         <dt>ホテル名</dt>
         <dd>{{ $hotel->name }}</dd>

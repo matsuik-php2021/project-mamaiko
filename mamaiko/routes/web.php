@@ -71,10 +71,9 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::get('/hotels/{id}/info','HotelController@show')->name('hotel.show');
         Route::get('/hotels/{id}/edit','HotelController@edit')->name('hotel.edit');
         Route::post('/hotels/info/update','HotelController@update')->name('hotel.update');
-        // Route::get('/hotels/{id}/img/','HotelController@img')->name('hotel.img');
-        // Route::post('/hotels/upload','HotelController@upload')->name('hotel.upload');
         Route::get('/hotels/create','HotelController@create')->name('hotel.create');
         Route::post('/hotels/store','HotelController@store')->name('hotel.store');
+        Route::get('/hotels/{id}/destroy','HotelController@destroy')->name('hotel.destroy');
         //プラン管理
         Route::get('/plans/{id}/edit','PlanController@edit')->name('plan.edit');
         Route::get('/plans/{id}/destroy','PlanController@destroy')->name('plan.destroy');
