@@ -3,80 +3,84 @@
 namespace App\Http\Controllers;
 
 use App\Review;
+use App\Hotel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
     public function index($id) {
-        $reviews = Review::query()->where("hotel_id","=",$id)->get();
-        return view('review.index',["reviews"=>$reviews,"hotel_id"=>$id]);
-
+        $hotel = Hotel::find($id);
+        return view('review.index',["hotel"=>$hotel]);
     }
-    public function show(Request $request){
+
+    public function form(Request $request){
         return view('review.post', [
             "hotel_id"=>$request->hotel_id
         ]);
     }
+
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'rate' => 'required',
+            'review' => 'required|max:500',
+        ]);
         $review = new \App\Review;
         $review->rate = $request->rate;
         $review->review = $request->review;
         $review->user_id = \Auth::id();
         $review->hotel_id = $request->hotel_id;
-        // $this->validate($review, [
-        //     'rate' => 'required',
-        //     'review' => 'required|max:500',
-        //     'user_id' => 'required|unique:reviews',
-        // ]);
+        if (!$review->isUnique()){
+            return redirect(route('review.index',$review->hotel_id))->with('message', "これ以上は投稿できません。");
+        }
         $review->save();
         return view('review.store');
     }
 
     public function review(Request $request) {
 
-        $result = false;
+        // $result = false;
 
-        // バリデーション
-        $request->validate([
-            'hotel_id' => [
-                'required',
-                'exists:user_id,rate',
-                function($attribute, $value, $fail) use($request) {
+        // // バリデーション
+        // $request->validate([
+        //     'hotel_id' => [
+        //         'required',
+        //         'exists:user_id,rate',
+        //         function($attribute, $value, $fail) use($request) {
 
-                    // ログインしてるかチェック
-                    if(!auth()->check()) {
+        //             // ログインしてるかチェック
+        //             if(!auth()->check()) {
 
-                        $fail('レビューするにはログインしてください。');
-                        return;
+        //                 $fail('レビューするにはログインしてください。');
+        //                 return;
 
-                    }
+        //             }
 
-                    // すでにレビュー投稿してるかチェック
-                    $exists = \App\Review::where('user_id', $request->user()->id)
-                        ->where('hotel_id', $request->hotel_id)
-                        ->exists();
+        //             // すでにレビュー投稿してるかチェック
+        //             $exists = \App\Review::where('user_id', $request->user()->id)
+        //                 ->where('hotel_id', $request->hotel_id)
+        //                 ->exists();
 
-                    if($exists) {
+        //             if($exists) {
 
-                        $fail('すでにレビューは投稿済みです。');
-                        return;
+        //                 $fail('すでにレビューは投稿済みです。');
+        //                 return;
 
-                    }
+        //             }
 
-                }
-            ],
-            'rate' => 'required|tinyint|min:1|max:5'
-        ]);
+        //         }
+        //     ],
+        //     'rate' => 'required|tinyint|min:1|max:5'
+        // ]);
 
-        $review = new \App\Review();
-        $review->hotel_id = $request->hotel_id;
-        $review->user_id = $request->user()->id;
-        $review->rate = $request->rate;
-        $review->review = $request->review;
-        $result = $review->save();
-        return ['result' => $result];
+        // $review = new \App\Review();
+        // $review->hotel_id = $request->hotel_id;
+        // $review->user_id = $request->user()->id;
+        // $review->rate = $request->rate;
+        // $review->review = $request->review;
+        // $result = $review->save();
+        // return ['result' => $result];
 
     }
 }

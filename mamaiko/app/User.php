@@ -61,4 +61,14 @@ class User extends Authenticatable
     {
         return $this->favorite_hotels()->where('hotels.id', $hotel_id)->exists();
     }
+
+    public function canReview($hotel_id)
+    {
+        foreach($this->reviews as $review){
+            if($review->hotel_id == $hotel_id){
+                return false;
+            }
+        }
+        return true;
+    }
 }

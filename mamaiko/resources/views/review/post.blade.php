@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <h2>レビュー投稿画面</h2>
+@include('commons/flash')
 <b>評価</b><br>
 <form action="{{route('review.store')}}" method="post">
     @csrf
@@ -18,11 +19,13 @@
     </div>
 <b>内容</b><br>
 <textarea name="review" cols="50" rows="10" placeholder="500字以内で感想を記入してください（必須）" maxlength="500" value="{{old('review')}}"></textarea>
-<input type="hidden" value="{{$hotel_id}}" name="hotel_id"><br>
+<input type="hidden" value="{{$hotel_id}}" name="hotel_id">
+<input type="hidden" value="{{ \Auth::id() }}" name="user_id"><br>
 <button type="submit">この内容でレビューを投稿する</button>
 </form>
+
 <form action="javascript:history.back()" method="get">
     @csrf
     <button type="submit">戻る</button>
-    </form>
+</form>
 @endsection
