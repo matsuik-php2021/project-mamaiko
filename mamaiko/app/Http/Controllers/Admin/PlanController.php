@@ -58,4 +58,15 @@ class PlanController extends Controller
         return redirect(route('admin.hotel.show',$request->hotel_id));
         // return redirect(route('admin.plan.update',$user->id));
     }
+    public function destroy($id)
+    {
+        $plan = Plan::where('id','=',$id)->get()[0];
+        if($plan==null){
+            dd("ERROR : ユーザーが取得できませんでした。");
+        }
+        $hotel_id = $plan->hotel_id;
+        $plan->delete();
+        return redirect(route('admin.hotel.show',$hotel_id));
+    }
+
 }

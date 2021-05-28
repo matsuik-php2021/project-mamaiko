@@ -77,6 +77,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::post('/hotels/store','HotelController@store')->name('hotel.store');
         //プラン管理
         Route::get('/plans/{id}/edit','PlanController@edit')->name('plan.edit');
+        Route::get('/plans/{id}/destroy','PlanController@destroy')->name('plan.destroy');
         Route::post('/plans/info/update','PlanController@update')->name('plan.update');
         Route::get('/plans/of{id}/create','PlanController@create')->name('plan.create');
         Route::post('/plans/store','PlanController@store')->name('plan.store');

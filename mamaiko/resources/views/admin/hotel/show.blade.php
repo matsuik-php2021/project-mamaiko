@@ -48,7 +48,8 @@
                     </tr>
                 </table>
             </p>
-            <a href="{{route('admin.plan.edit',$plan->id)}}" class="btn btn-secondary" id = "right">変更</a>
+            <p><a href="{{route('admin.plan.destroy',$plan->id)}}" class="btn btn-secondary" id = "right">削除</a></p>
+            <p><a href="{{route('admin.plan.edit',$plan->id)}}" class="btn btn-secondary" id = "right">変更</a></p> 
         </div>
     </div>
 @endforeach
