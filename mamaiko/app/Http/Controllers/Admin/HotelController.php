@@ -91,4 +91,11 @@ class HotelController extends Controller
         // return redirect(route('admin.hotel.update',$user->id));
     }
 
+    public function destroy($id)
+    {
+        $hotel = Hotel::find($id);
+        $hotel->delete();
+        return redirect(route("admin.hotel.index"));
+    }
+
 }

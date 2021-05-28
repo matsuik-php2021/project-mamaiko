@@ -73,6 +73,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::post('/hotels/info/update','HotelController@update')->name('hotel.update');
         Route::get('/hotels/create','HotelController@create')->name('hotel.create');
         Route::post('/hotels/store','HotelController@store')->name('hotel.store');
+        Route::get('/hotels/{id}/destroy','HotelController@destroy')->name('hotel.destroy');
         //プラン管理
         Route::get('/plans/{id}/edit','PlanController@edit')->name('plan.edit');
         Route::post('/plans/info/update','PlanController@update')->name('plan.update');
